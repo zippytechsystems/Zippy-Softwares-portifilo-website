@@ -9,13 +9,13 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#0A1128] text-slate-100 font-sans selection:bg-cyan-500/20 selection:text-cyan-200">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-slate-800 font-sans selection:bg-blue-600/15 selection:text-blue-950">
       <ScrollToTop />
       
       {/* Skip to Content for Accessibility */}
       <a 
         href="#main-content" 
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-cyan-500 text-black font-bold rounded-lg shadow-xl"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-blue-600 text-white font-bold rounded-lg shadow-xl"
       >
         Skip to main content
       </a>

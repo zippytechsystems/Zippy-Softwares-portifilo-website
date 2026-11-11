@@ -22,18 +22,18 @@ export const Footer: React.FC = () => {
   });
 
   return (
-    <footer className="relative bg-[#050914] text-slate-400 border-t border-slate-800/80 pt-16 pb-12 overflow-hidden">
+    <footer className="relative bg-[#0A1628] text-slate-400 border-t border-slate-800 pt-16 pb-12 overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Grid: 4 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-slate-850">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
           
           {/* Column 1: Company Profile (Spans 2 on LG) */}
           <div className="lg:col-span-2 space-y-4">
-            <Logo size="md" />
+            <Logo size="md" variant="dark" />
             <p className="text-slate-300 text-sm leading-relaxed max-w-sm">
               Zippy Enterprises Private Limited is an enterprise-grade IT services and software development company. We engineer custom web platforms, mission-critical business applications, and autonomous AI automation solutions.
             </p>

@@ -20,15 +20,12 @@ export const CTASection: React.FC<CTASectionProps> = ({
 
   return (
     <section className={`relative overflow-hidden py-16 sm:py-20 lg:py-24 ${className}`}>
-      {/* Decorative Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-blue-600/20 via-cyan-500/15 to-transparent blur-3xl pointer-events-none rounded-full" />
-      
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="rounded-3xl bg-gradient-to-b from-[#0E1B38] to-[#070D1E] border border-cyan-500/30 p-8 sm:p-12 lg:p-16 text-center shadow-2xl shadow-cyan-950/30">
+        <div className="rounded-3xl bg-gradient-to-br from-[#102747] via-[#0D213F] to-[#17365F] border border-blue-900/60 p-8 sm:p-12 lg:p-16 text-center shadow-xl">
           
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold badge-cyan mb-6 mx-auto">
-            <Zap className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-900/60 text-blue-200 border border-blue-400/30 mb-6 mx-auto">
+            <Zap className="w-3.5 h-3.5 text-blue-300" />
             <span>Fast-Track Your Technology Roadmap</span>
           </div>
 
@@ -38,7 +35,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
           </h2>
 
           {/* Subtitle */}
-          <p className="mt-5 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 text-base sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed">
             {subtitle}
           </p>
 
@@ -46,7 +43,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold text-base transition-all duration-300 shadow-lg shadow-blue-600/30 hover:shadow-cyan-500/30 hover:-translate-y-0.5 active:translate-y-0"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-base transition-all duration-200 shadow-lg shadow-blue-900/40 hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Discuss Your Project</span>
               <ArrowRight className="w-4 h-4" />
@@ -56,25 +53,25 @@ export const CTASection: React.FC<CTASectionProps> = ({
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-[#0F2826] hover:bg-[#133734] border border-emerald-500/40 text-emerald-400 font-semibold text-base transition-all duration-300 shadow-md hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base transition-all duration-200 shadow-md hover:-translate-y-0.5"
             >
-              <MessageSquare className="w-4 h-4 text-emerald-400" />
+              <MessageSquare className="w-4 h-4 text-white" />
               <span>Chat on WhatsApp</span>
             </a>
           </div>
 
           {/* Enterprise Commitments Banner */}
-          <div className="mt-12 pt-8 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-6 text-slate-400 text-xs sm:text-sm">
+          <div className="mt-12 pt-8 border-t border-blue-800/60 grid grid-cols-1 sm:grid-cols-3 gap-6 text-slate-200 text-xs sm:text-sm">
             <div className="flex items-center justify-center gap-2">
-              <Shield className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+              <Shield className="w-4 h-4 text-blue-300 flex-shrink-0" />
               <span>Strict Non-Disclosure (NDA) Protected</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <Clock className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+              <Clock className="w-4 h-4 text-blue-300 flex-shrink-0" />
               <span>Guaranteed 24-Hour Scoping Turnaround</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <Zap className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+              <Zap className="w-4 h-4 text-blue-300 flex-shrink-0" />
               <span>Transparent Agile Sprint Pricing</span>
             </div>
           </div>

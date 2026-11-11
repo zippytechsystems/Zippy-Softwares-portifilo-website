@@ -33,7 +33,7 @@ export const Navbar: React.FC = () => {
   // Track window scroll for sticky navbar styling
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -64,24 +64,24 @@ export const Navbar: React.FC = () => {
       <header 
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled 
-            ? 'bg-[#070D1E]/95 backdrop-blur-md border-b border-slate-800/80 shadow-xl shadow-black/40 py-3' 
-            : 'bg-transparent py-4 sm:py-5'
+            ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm py-3' 
+            : 'bg-white/85 backdrop-blur-sm border-b border-slate-200/60 py-3.5 sm:py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             
             {/* Corporate Logo */}
-            <Logo size="md" />
+            <Logo size="md" variant="light" />
 
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
               <Link
                 to="/"
-                className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors ${
                   location.pathname === '/' 
-                    ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/20' 
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                    ? 'text-blue-700 bg-blue-50 border border-blue-200/80 shadow-xs' 
+                    : 'text-slate-700 hover:text-blue-700 hover:bg-slate-50'
                 }`}
               >
                 Home
@@ -89,10 +89,10 @@ export const Navbar: React.FC = () => {
 
               <Link
                 to="/about"
-                className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors ${
                   isActive('/about') 
-                    ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/20' 
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                    ? 'text-blue-700 bg-blue-50 border border-blue-200/80 shadow-xs' 
+                    : 'text-slate-700 hover:text-blue-700 hover:bg-slate-50'
                 }`}
               >
                 About Us
@@ -104,41 +104,41 @@ export const Navbar: React.FC = () => {
                   type="button"
                   onClick={() => setServicesOpen(!servicesOpen)}
                   onMouseEnter={() => setServicesOpen(true)}
-                  className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors ${
                     isActive('/services')
-                      ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/20'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                      ? 'text-blue-700 bg-blue-50 border border-blue-200/80 shadow-xs'
+                      : 'text-slate-700 hover:text-blue-700 hover:bg-slate-50'
                   }`}
                   aria-expanded={servicesOpen}
                 >
                   <span>Our Services</span>
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? 'rotate-180 text-cyan-400' : ''}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? 'rotate-180 text-blue-600' : 'text-slate-500'}`} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {servicesOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-80 rounded-2xl bg-[#0E1B38] border border-cyan-500/30 shadow-2xl p-3 z-50 backdrop-blur-xl animate-fadeIn"
+                    className="absolute top-full left-0 mt-2 w-80 rounded-2xl bg-white border border-slate-200 shadow-2xl p-3 z-50 animate-fadeIn"
                     onMouseLeave={() => setServicesOpen(false)}
                   >
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1.5 border-b border-slate-800/60 flex items-center justify-between">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 px-3 py-1.5 border-b border-slate-100 flex items-center justify-between">
                       <span>Core IT Divisions</span>
-                      <Sparkles className="w-3 h-3 text-cyan-400" />
+                      <Sparkles className="w-3 h-3 text-blue-600" />
                     </div>
 
                     <div className="mt-1 space-y-1">
                       <Link
                         to="/services/web-development"
-                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#132247] transition-colors group"
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                       >
-                        <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 flex-shrink-0">
+                        <div className="p-2 rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-100 flex-shrink-0">
                           <Globe className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">
+                          <div className="text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
                             Web Development
                           </div>
-                          <p className="text-xs text-slate-400 line-clamp-1">
+                          <p className="text-xs text-slate-500 line-clamp-1">
                             Websites, E-commerce, SaaS, Enterprise Portals
                           </p>
                         </div>
@@ -146,16 +146,16 @@ export const Navbar: React.FC = () => {
 
                       <Link
                         to="/services/app-development"
-                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#132247] transition-colors group"
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                       >
-                        <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500/20 flex-shrink-0">
+                        <div className="p-2 rounded-lg bg-emerald-50 text-emerald-600 group-hover:bg-emerald-100 flex-shrink-0">
                           <Smartphone className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">
+                          <div className="text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                             App Development
                           </div>
-                          <p className="text-xs text-slate-400 line-clamp-1">
+                          <p className="text-xs text-slate-500 line-clamp-1">
                             Business Apps, ERP/CRM, Accounting, iOS/Android
                           </p>
                         </div>
@@ -163,26 +163,26 @@ export const Navbar: React.FC = () => {
 
                       <Link
                         to="/services/ai-automation"
-                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#132247] transition-colors group"
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                       >
-                        <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500/20 flex-shrink-0">
+                        <div className="p-2 rounded-lg bg-sky-50 text-sky-600 group-hover:bg-sky-100 flex-shrink-0">
                           <Bot className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">
+                          <div className="text-sm font-bold text-slate-900 group-hover:text-sky-700 transition-colors">
                             AI Agent & Automation
                           </div>
-                          <p className="text-xs text-slate-400 line-clamp-1">
+                          <p className="text-xs text-slate-500 line-clamp-1">
                             Autonomous LLM Bots, Voice Telephony, Workflows
                           </p>
                         </div>
                       </Link>
                     </div>
 
-                    <div className="mt-2 pt-2 border-t border-slate-800/80 px-2">
+                    <div className="mt-2 pt-2 border-t border-slate-150 px-2">
                       <Link
                         to="/services"
-                        className="flex items-center justify-between text-xs font-semibold text-cyan-400 hover:text-cyan-300 p-1.5 rounded-lg hover:bg-[#132247]/60"
+                        className="flex items-center justify-between text-xs font-semibold text-blue-600 hover:text-blue-800 p-1.5 rounded-lg hover:bg-blue-50/50"
                       >
                         <span>View All Services & Solutions</span>
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -194,10 +194,10 @@ export const Navbar: React.FC = () => {
 
               <Link
                 to="/portfolio"
-                className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors ${
                   isActive('/portfolio') 
-                    ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/20' 
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                    ? 'text-blue-700 bg-blue-50 border border-blue-200/80 shadow-xs' 
+                    : 'text-slate-700 hover:text-blue-700 hover:bg-slate-50'
                 }`}
               >
                 Portfolio
@@ -205,10 +205,10 @@ export const Navbar: React.FC = () => {
 
               <Link
                 to="/process"
-                className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors ${
                   isActive('/process') 
-                    ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/20' 
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                    ? 'text-blue-700 bg-blue-50 border border-blue-200/80 shadow-xs' 
+                    : 'text-slate-700 hover:text-blue-700 hover:bg-slate-50'
                 }`}
               >
                 Development Process
@@ -216,10 +216,10 @@ export const Navbar: React.FC = () => {
 
               <Link
                 to="/contact"
-                className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-colors ${
                   isActive('/contact') 
-                    ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/20' 
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                    ? 'text-blue-700 bg-blue-50 border border-blue-200/80 shadow-xs' 
+                    : 'text-slate-700 hover:text-blue-700 hover:bg-slate-50'
                 }`}
               >
                 Contact Us
@@ -232,7 +232,7 @@ export const Navbar: React.FC = () => {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-[#0E1B38] border border-emerald-500/30 text-emerald-400 hover:bg-[#132825] hover:text-emerald-300 transition-colors"
+                className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-600 hover:bg-emerald-100 transition-colors"
                 title="Chat with our team on WhatsApp"
                 aria-label="WhatsApp chat"
               >
@@ -241,7 +241,7 @@ export const Navbar: React.FC = () => {
 
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-cyan-500 text-white font-bold text-sm transition-all duration-300 shadow-md shadow-blue-600/30 hover:shadow-cyan-500/30"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition-all duration-300 shadow-md shadow-blue-500/20"
               >
                 <span>Discuss Project</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -254,7 +254,7 @@ export const Navbar: React.FC = () => {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-emerald-950/50 border border-emerald-500/30 text-emerald-400"
+                className="p-2 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-600"
                 aria-label="WhatsApp"
               >
                 <MessageSquare className="w-4 h-4" />
@@ -263,11 +263,11 @@ export const Navbar: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2.5 rounded-xl bg-[#0E1B38] border border-slate-700 text-slate-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                className="p-2.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 aria-label="Toggle navigation menu"
                 aria-expanded={isOpen}
               >
-                {isOpen ? <X className="w-6 h-6 text-cyan-400" /> : <Menu className="w-6 h-6" />}
+                {isOpen ? <X className="w-6 h-6 text-blue-600" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
 
@@ -278,21 +278,21 @@ export const Navbar: React.FC = () => {
       {/* Mobile Drawer Navigation (Backdrop + Slide-over) */}
       {isOpen && (
         <div 
-          className="fixed inset-0 z-40 bg-black/80 backdrop-blur-md lg:hidden"
+          className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm lg:hidden"
           onClick={() => setIsOpen(false)}
         >
           <div 
-            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-[#0A1128] border-l border-slate-800 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto animate-slideLeft"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white border-l border-slate-200 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto animate-slideLeft"
             onClick={(e) => e.stopPropagation()}
           >
             <div>
               {/* Drawer Header */}
-              <div className="flex items-center justify-between pb-5 border-b border-slate-800">
-                <Logo size="sm" />
+              <div className="flex items-center justify-between pb-5 border-b border-slate-200">
+                <Logo size="sm" variant="light" />
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white"
+                  className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:text-slate-900"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -305,8 +305,8 @@ export const Navbar: React.FC = () => {
                   to="/"
                   className={`block px-4 py-3 rounded-xl text-base font-semibold ${
                     location.pathname === '/' 
-                      ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/30' 
-                      : 'text-slate-200 hover:bg-slate-800/60'
+                      ? 'text-blue-700 bg-blue-50 border border-blue-200/80' 
+                      : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
                   Home
@@ -316,8 +316,8 @@ export const Navbar: React.FC = () => {
                   to="/about"
                   className={`block px-4 py-3 rounded-xl text-base font-semibold ${
                     isActive('/about') 
-                      ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/30' 
-                      : 'text-slate-200 hover:bg-slate-800/60'
+                      ? 'text-blue-700 bg-blue-50 border border-blue-200/80' 
+                      : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
                   About Us
@@ -325,35 +325,35 @@ export const Navbar: React.FC = () => {
 
                 {/* Mobile Services Accordion */}
                 <div className="pt-2">
-                  <div className="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                  <div className="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-500">
                     Our Core Divisions
                   </div>
                   <div className="space-y-1 pl-2">
                     <Link
                       to="/services"
-                      className="block px-3 py-2 rounded-lg text-sm text-cyan-300 hover:bg-slate-800/50 font-medium"
+                      className="block px-3 py-2 rounded-lg text-sm text-blue-600 hover:bg-blue-50 font-semibold"
                     >
                       → Services Overview
                     </Link>
                     <Link
                       to="/services/web-development"
-                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-slate-800/50"
+                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50"
                     >
-                      <Globe className="w-4 h-4 text-blue-400" />
+                      <Globe className="w-4 h-4 text-blue-600" />
                       <span>Web Development Services</span>
                     </Link>
                     <Link
                       to="/services/app-development"
-                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-slate-800/50"
+                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50"
                     >
-                      <Smartphone className="w-4 h-4 text-emerald-400" />
+                      <Smartphone className="w-4 h-4 text-emerald-600" />
                       <span>App Development Services</span>
                     </Link>
                     <Link
                       to="/services/ai-automation"
-                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-slate-800/50"
+                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50"
                     >
-                      <Bot className="w-4 h-4 text-cyan-400" />
+                      <Bot className="w-4 h-4 text-sky-600" />
                       <span>AI Agent & Automation Services</span>
                     </Link>
                   </div>
@@ -364,8 +364,8 @@ export const Navbar: React.FC = () => {
                     to="/portfolio"
                     className={`block px-4 py-3 rounded-xl text-base font-semibold ${
                       isActive('/portfolio') 
-                        ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/30' 
-                        : 'text-slate-200 hover:bg-slate-800/60'
+                        ? 'text-blue-700 bg-blue-50 border border-blue-200/80' 
+                        : 'text-slate-700 hover:bg-slate-50'
                     }`}
                   >
                     Our Portfolio & Projects
@@ -375,8 +375,8 @@ export const Navbar: React.FC = () => {
                     to="/process"
                     className={`block px-4 py-3 rounded-xl text-base font-semibold ${
                       isActive('/process') 
-                        ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/30' 
-                        : 'text-slate-200 hover:bg-slate-800/60'
+                        ? 'text-blue-700 bg-blue-50 border border-blue-200/80' 
+                        : 'text-slate-700 hover:bg-slate-50'
                     }`}
                   >
                     Development Process
@@ -386,8 +386,8 @@ export const Navbar: React.FC = () => {
                     to="/contact"
                     className={`block px-4 py-3 rounded-xl text-base font-semibold ${
                       isActive('/contact') 
-                        ? 'text-cyan-400 bg-cyan-950/40 border border-cyan-500/30' 
-                        : 'text-slate-200 hover:bg-slate-800/60'
+                        ? 'text-blue-700 bg-blue-50 border border-blue-200/80' 
+                        : 'text-slate-700 hover:bg-slate-50'
                     }`}
                   >
                     Contact Us
@@ -397,12 +397,12 @@ export const Navbar: React.FC = () => {
             </div>
 
             {/* Mobile Drawer Bottom Actions */}
-            <div className="pt-6 border-t border-slate-800 space-y-3">
+            <div className="pt-6 border-t border-slate-200 space-y-3">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 font-bold text-sm"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 font-bold text-sm"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Chat on WhatsApp</span>
@@ -410,7 +410,7 @@ export const Navbar: React.FC = () => {
 
               <Link
                 to="/contact"
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30"
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md shadow-blue-500/20"
               >
                 <span>Discuss Your Project</span>
                 <ArrowRight className="w-4 h-4" />

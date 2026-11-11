@@ -17,10 +17,10 @@ const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ defaul
 const PageLoader: React.FC = () => (
   <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3">
     <div className="relative w-12 h-12">
-      <div className="absolute inset-0 rounded-full border-2 border-cyan-500/20"></div>
-      <div className="absolute inset-0 rounded-full border-2 border-cyan-400 border-t-transparent animate-spin"></div>
+      <div className="absolute inset-0 rounded-full border-2 border-blue-200"></div>
+      <div className="absolute inset-0 rounded-full border-2 border-blue-600 border-t-transparent animate-spin"></div>
     </div>
-    <span className="text-xs font-mono text-cyan-400 tracking-widest uppercase">
+    <span className="text-xs font-mono text-blue-700 tracking-widest uppercase">
       Loading Architecture...
     </span>
   </div>
@@ -28,29 +28,29 @@ const PageLoader: React.FC = () => (
 
 const NotFoundPage: React.FC = () => (
   <div className="py-24 text-center max-w-xl mx-auto px-4">
-    <div className="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 mx-auto mb-6">
+    <div className="w-16 h-16 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 mx-auto mb-6">
       <AlertCircle className="w-8 h-8" />
     </div>
-    <div className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest mb-2">
+    <div className="text-xs font-mono font-bold text-blue-700 uppercase tracking-widest mb-2">
       HTTP 404 &bull; Page Not Found
     </div>
-    <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+    <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
       Resource Relocated or Not Found
     </h1>
-    <p className="mt-4 text-slate-300 text-sm leading-relaxed">
+    <p className="mt-4 text-slate-600 text-sm leading-relaxed">
       The page you requested does not exist or may have been reorganized. Please return to our main corporate portal.
     </p>
     <div className="mt-8 flex justify-center gap-4">
       <Link
         to="/"
-        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-md"
+        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Return to Home</span>
       </Link>
       <Link
         to="/services"
-        className="px-6 py-3 rounded-xl bg-[#0E1B38] border border-slate-700 text-slate-200 text-sm font-semibold hover:bg-[#132247]"
+        className="px-6 py-3 rounded-xl bg-white border border-slate-200 text-slate-700 text-sm font-semibold hover:bg-slate-50"
       >
         View Services
       </Link>

@@ -27,10 +27,10 @@ export const AppDevelopmentPage: React.FC = () => {
 
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Briefcase': return <Briefcase className="w-5 h-5 text-emerald-400" />;
-      case 'Calculator': return <Calculator className="w-5 h-5 text-teal-400" />;
-      case 'Layers': return <Layers className="w-5 h-5 text-cyan-400" />;
-      default: return <TabletSmartphone className="w-5 h-5 text-emerald-400" />;
+      case 'Briefcase': return <Briefcase className="w-5 h-5 text-emerald-600" />;
+      case 'Calculator': return <Calculator className="w-5 h-5 text-teal-600" />;
+      case 'Layers': return <Layers className="w-5 h-5 text-sky-600" />;
+      default: return <TabletSmartphone className="w-5 h-5 text-emerald-600" />;
     }
   };
 
@@ -40,7 +40,7 @@ export const AppDevelopmentPage: React.FC = () => {
   });
 
   return (
-    <div className="relative overflow-hidden py-12 md:py-16">
+    <div className="relative overflow-hidden py-12 md:py-16 bg-[#F8FAFC]">
       <MetaTags
         title="App Development Services | Business Apps, ERP, Accounting & Mobile Apps"
         description="Enterprise app development by Zippy Enterprises Private Limited. Field service business apps, GST accounting software, custom CRM/ERP suites, and iOS/Android mobile applications."
@@ -49,26 +49,24 @@ export const AppDevelopmentPage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pb-16 md:pb-24">
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-600/15 blur-[120px] pointer-events-none rounded-full" />
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 mb-6">
-            <Smartphone className="w-3.5 h-3.5 text-emerald-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 mb-6">
+            <Smartphone className="w-3.5 h-3.5 text-emerald-600" />
             <span>{service.badge}</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto">
             {service.heroHeadline}
           </h1>
 
-          <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             {service.heroSubheadline}
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/contact?service=App%20Development"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-base transition-all shadow-lg shadow-emerald-600/30"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base transition-all shadow-md shadow-emerald-500/20"
             >
               <span>Build Your Application</span>
               <ArrowRight className="w-4 h-4" />
@@ -78,7 +76,7 @@ export const AppDevelopmentPage: React.FC = () => {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-[#0E1B38] border border-emerald-500/30 hover:border-emerald-400 text-slate-200 font-semibold text-base transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold text-base transition-colors shadow-xs"
             >
               <span>Instant WhatsApp Inquiry</span>
             </a>
@@ -87,9 +85,9 @@ export const AppDevelopmentPage: React.FC = () => {
           {/* Key Metrics */}
           <div className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {service.metrics.map((m, idx) => (
-              <div key={idx} className="p-4 rounded-2xl bg-[#0A1329]/80 border border-slate-800">
-                <div className="text-xl sm:text-2xl font-extrabold text-white">{m.value}</div>
-                <div className="text-xs text-slate-400 mt-1">{m.label}</div>
+              <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+                <div className="text-xl sm:text-2xl font-extrabold text-slate-900">{m.value}</div>
+                <div className="text-xs text-slate-500 mt-1 font-medium">{m.label}</div>
               </div>
             ))}
           </div>
@@ -97,7 +95,7 @@ export const AppDevelopmentPage: React.FC = () => {
       </section>
 
       {/* Categories Architecture - Tabbed Detail */}
-      <section className="py-16 md:py-24 bg-[#070D1E] border-y border-slate-850">
+      <section className="py-16 md:py-24 bg-white border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Category Architecture"
@@ -116,11 +114,11 @@ export const AppDevelopmentPage: React.FC = () => {
                   onClick={() => setActiveCategoryId(cat.id)}
                   className={`p-4 rounded-2xl border text-left transition-all duration-200 flex items-center gap-3 ${
                     isSelected 
-                      ? 'bg-[#0E1B38] border-emerald-400 shadow-lg shadow-emerald-950/40 text-white' 
-                      : 'bg-[#0A1329]/60 border-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-[#0E1B38]/50'
+                      ? 'bg-emerald-50 border-2 border-emerald-600 shadow-sm text-emerald-950 font-bold' 
+                      : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 shadow-xs'
                   }`}
                 >
-                  <div className={`p-2 rounded-xl flex-shrink-0 ${isSelected ? 'bg-emerald-500/20 text-emerald-300' : 'bg-slate-800 text-slate-400'}`}>
+                  <div className={`p-2 rounded-xl flex-shrink-0 ${isSelected ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500'}`}>
                     {getCategoryIcon(cat.icon)}
                   </div>
                   <div>
@@ -134,36 +132,36 @@ export const AppDevelopmentPage: React.FC = () => {
           </div>
 
           {/* Active Category Deep Dive */}
-          <div className="rounded-3xl bg-[#0E1B38]/90 border border-slate-800 p-8 sm:p-12 shadow-2xl">
+          <div className="rounded-3xl bg-slate-50/70 border border-slate-200 p-8 sm:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               
               {/* Left Column: Narrative & Features */}
               <div className="lg:col-span-7 space-y-6">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
                     Category Overview
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
                     {activeCategory.title}
                   </h3>
-                  <p className="text-sm font-medium text-slate-300 mt-1">
+                  <p className="text-sm font-medium text-slate-600 mt-1">
                     {activeCategory.subtitle}
                   </p>
                 </div>
 
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                   {activeCategory.description}
                 </p>
 
                 {/* Key Features */}
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-3">
                     Architectural Features & Capabilities:
                   </h4>
                   <div className="space-y-2">
                     {activeCategory.features.map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                      <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -172,12 +170,12 @@ export const AppDevelopmentPage: React.FC = () => {
 
                 {/* Deliverables */}
                 <div className="pt-2">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-3">
                     Client Deliverables Included:
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {activeCategory.deliverables.map((deliv, idx) => (
-                      <div key={idx} className="p-2.5 rounded-lg bg-[#070D1E] border border-slate-800 text-xs text-slate-300">
+                      <div key={idx} className="p-3 rounded-xl bg-white border border-slate-200 shadow-xs text-xs text-slate-700">
                         &bull; {deliv}
                       </div>
                     ))}
@@ -189,14 +187,14 @@ export const AppDevelopmentPage: React.FC = () => {
               <div className="lg:col-span-5 space-y-6">
                 
                 {/* Business Benefits Card */}
-                <div className="p-6 rounded-2xl bg-[#070D1E]/90 border border-emerald-500/30">
-                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400 mb-3">
-                    <Zap className="w-4 h-4 text-emerald-400" />
+                <div className="p-6 rounded-2xl bg-white border border-emerald-200 shadow-sm">
+                  <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">
+                    <Zap className="w-4 h-4 text-emerald-600" />
                     Measurable Commercial Value
                   </div>
                   <div className="space-y-3">
                     {activeCategory.businessBenefits.map((benefit, idx) => (
-                      <div key={idx} className="text-xs sm:text-sm text-slate-200 leading-relaxed border-l-2 border-emerald-500 pl-3">
+                      <div key={idx} className="text-xs sm:text-sm text-slate-700 leading-relaxed border-l-2 border-emerald-600 pl-3">
                         {benefit}
                       </div>
                     ))}
@@ -204,13 +202,13 @@ export const AppDevelopmentPage: React.FC = () => {
                 </div>
 
                 {/* Ideal For */}
-                <div className="p-6 rounded-2xl bg-[#070D1E]/90 border border-slate-800">
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-3">
                     Engineered Specifically For:
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {activeCategory.idealFor.map((target, idx) => (
-                      <span key={idx} className="px-2.5 py-1 rounded-lg text-xs bg-[#0E1B38] text-slate-200 border border-slate-700">
+                      <span key={idx} className="px-3 py-1 rounded-lg text-xs bg-slate-100 text-slate-700 border border-slate-200 font-medium">
                         {target}
                       </span>
                     ))}
@@ -221,7 +219,7 @@ export const AppDevelopmentPage: React.FC = () => {
                 <div className="pt-2">
                   <Link
                     to={`/contact?service=App%20Development&subCategory=${encodeURIComponent(activeCategory.title)}`}
-                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition-colors"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition-colors"
                   >
                     <span>Request Proposal for {activeCategory.title}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -237,27 +235,27 @@ export const AppDevelopmentPage: React.FC = () => {
       </section>
 
       {/* Offline First & Sync Architecture Spotlight */}
-      <section className="py-16 md:py-20 relative">
+      <section className="py-16 md:py-20 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-emerald-950/40 via-[#0E1B38] to-teal-950/40 border border-emerald-500/30">
+          <div className="p-8 sm:p-12 rounded-3xl bg-emerald-50/60 border border-emerald-200">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-8 space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
-                  <WifiOff className="w-3.5 h-3.5 text-emerald-400" />
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                  <WifiOff className="w-3.5 h-3.5 text-emerald-700" />
                   <span>Resilient Offline-First Architecture</span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                   Zero Data Loss in Rural & Remote Highway Zones
                 </h3>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                   Field service technicians and freight drivers cannot be halted by cell dead spots. Our applications write data directly to an encrypted local on-device SQLite database and synchronize automatically with master servers the moment a network connection is detected.
                 </p>
               </div>
               <div className="md:col-span-4 flex justify-center">
-                <div className="p-6 rounded-2xl bg-[#070D1E] border border-slate-800 text-center space-y-2">
-                  <Database className="w-10 h-10 text-emerald-400 mx-auto" />
-                  <div className="text-sm font-bold text-white">Local-First Persistence</div>
-                  <div className="text-xs text-slate-400">Bidirectional Sync with Conflict Resolution</div>
+                <div className="p-6 rounded-2xl bg-white border border-emerald-200 shadow-sm text-center space-y-2">
+                  <Database className="w-10 h-10 text-emerald-600 mx-auto" />
+                  <div className="text-sm font-bold text-slate-900">Local-First Persistence</div>
+                  <div className="text-xs text-slate-500">Bidirectional Sync with Conflict Resolution</div>
                 </div>
               </div>
             </div>
@@ -266,7 +264,7 @@ export const AppDevelopmentPage: React.FC = () => {
       </section>
 
       {/* Tech Stack */}
-      <section className="py-16 md:py-20 bg-[#070D1E] border-y border-slate-850">
+      <section className="py-16 md:py-20 bg-white border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Engineering Stack"
@@ -276,13 +274,13 @@ export const AppDevelopmentPage: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {service.technologies.map((techGroup, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-[#0E1B38]/60 border border-slate-800">
-                <div className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-3">
+              <div key={idx} className="p-6 rounded-2xl bg-slate-50 border border-slate-200 shadow-xs">
+                <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">
                   {techGroup.category}
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {techGroup.items.map((item, i) => (
-                    <span key={i} className="px-2.5 py-1 rounded-md text-xs font-mono bg-[#070D1E] text-slate-200 border border-slate-800">
+                    <span key={i} className="px-2.5 py-1 rounded-md text-xs font-mono bg-white text-slate-700 border border-slate-200">
                       {item}
                     </span>
                   ))}
@@ -294,7 +292,7 @@ export const AppDevelopmentPage: React.FC = () => {
       </section>
 
       {/* App FAQs */}
-      <section className="py-20 md:py-24">
+      <section className="py-20 md:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FAQAccordion 
             faqs={service.faqs}

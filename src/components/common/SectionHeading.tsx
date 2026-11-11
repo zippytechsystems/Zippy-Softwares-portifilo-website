@@ -22,13 +22,13 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   return (
     <div className={`mb-12 md:mb-16 ${isCenter ? 'text-center mx-auto max-w-3xl' : 'text-left max-w-2xl'} ${className}`}>
       {badge && (
-        <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 badge-cyan ${isCenter ? 'mx-auto' : ''}`}>
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4 badge-cyan ${isCenter ? 'mx-auto' : ''}`}>
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
           {badge}
         </div>
       )}
 
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
         {title}{' '}
         {highlightedText && (
           <span className="text-gradient-cyan block sm:inline">
@@ -38,7 +38,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       </h2>
 
       {description && (
-        <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+        <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
           {description}
         </p>
       )}
