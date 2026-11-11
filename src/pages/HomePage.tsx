@@ -27,7 +27,11 @@ import {
   Landmark,
   Truck,
   UtensilsCrossed,
-  Briefcase
+  Briefcase,
+  Mail,
+  Phone,
+  Sparkles,
+  Users
 } from 'lucide-react';
 import { MetaTags } from '../components/common/MetaTags';
 import { SectionHeading } from '../components/common/SectionHeading';
@@ -479,6 +483,125 @@ export const HomePage: React.FC = () => {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          CAREER SPOTLIGHT: HIRING 4 DIGITAL MARKETING EXECUTIVES
+          ========================================================================= */}
+      <section className="py-16 md:py-20 bg-gradient-to-r from-slate-900 via-[#102747] to-blue-950 text-white relative overflow-hidden">
+        {/* Soft decorative background accents */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-7 sm:p-10 lg:p-12 shadow-2xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Left Column: Job Overview */}
+              <div className="lg:col-span-8 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-400 text-slate-950 shadow-sm">
+                  <Briefcase className="w-3.5 h-3.5" />
+                  <span>Immediate Hiring &bull; 4 Positions</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-950"></span>
+                  <span className="flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-slate-900" /> Walk-In / Direct Apply
+                  </span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+                  We Are Hiring: <span className="text-cyan-300">4 Digital Marketing Executives</span>
+                </h2>
+
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+                  <strong className="text-white">Zippy Enterprises Private Limited (Zippy Softwares)</strong> is rapidly expanding our Nacharam, Hyderabad marketing and client engagement team. We are onboarding 4 enthusiastic digital marketers to spearhead social media campaigns, SEO, and business lead generation.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
+                  <div className="p-3.5 rounded-xl bg-white/10 border border-white/10">
+                    <span className="text-slate-400 block font-mono text-[10px] uppercase">Open Positions</span>
+                    <strong className="text-white text-sm flex items-center gap-1.5 mt-0.5">
+                      <Users className="w-4 h-4 text-cyan-300" />
+                      4 Members
+                    </strong>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-white/10 border border-white/10">
+                    <span className="text-slate-400 block font-mono text-[10px] uppercase">Job Location</span>
+                    <strong className="text-white text-sm block mt-0.5">Nacharam, Hyderabad</strong>
+                  </div>
+                  <div className="p-3.5 rounded-xl bg-white/10 border border-white/10">
+                    <span className="text-slate-400 block font-mono text-[10px] uppercase">Experience</span>
+                    <strong className="text-white text-sm block mt-0.5">0 – 3 Yrs (Freshers Welcome)</strong>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-2 pt-2 text-xs text-cyan-200">
+                  <span className="px-2.5 py-1 rounded-md bg-white/10 border border-white/10">SEO & Traffic Growth</span>
+                  <span className="px-2.5 py-1 rounded-md bg-white/10 border border-white/10">Instagram Reels & Posts</span>
+                  <span className="px-2.5 py-1 rounded-md bg-white/10 border border-white/10">Facebook & LinkedIn Leads</span>
+                  <span className="px-2.5 py-1 rounded-md bg-white/10 border border-white/10">Performance Marketing</span>
+                </div>
+              </div>
+
+              {/* Right Column: Fast Application CTA Card */}
+              <div className="lg:col-span-4 bg-white rounded-2xl p-6 sm:p-7 text-slate-800 shadow-xl border border-slate-100 flex flex-col justify-between space-y-4">
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-blue-700 flex items-center justify-between">
+                    <span>Recruitment Desk</span>
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">Active</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mt-1">
+                    Apply Immediately
+                  </h3>
+                  <p className="text-slate-600 text-xs mt-1 leading-relaxed">
+                    Connect directly with our recruitment team via WhatsApp or Email your resume for an interview slot.
+                  </p>
+                </div>
+
+                <div className="space-y-2.5 pt-1">
+                  <a
+                    href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
+                      "Hello Zippy Enterprises, I am applying for the Digital Marketing Executive opening (4 positions) at your Nacharam, Hyderabad office. Please review my profile."
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Apply via WhatsApp</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+
+                  <a
+                    href={`mailto:${COMPANY_INFO.officialEmail}?subject=${encodeURIComponent(
+                      "Job Application: Digital Marketing Executive (4 Openings) - Zippy Enterprises"
+                    )}`}
+                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 font-bold text-xs transition-colors cursor-pointer"
+                  >
+                    <Mail className="w-4 h-4 text-blue-700" />
+                    <span>Email Resume Directly</span>
+                  </a>
+
+                  <button
+                    type="button"
+                    onClick={() => window.dispatchEvent(new CustomEvent('open-hiring-modal'))}
+                    className="w-full py-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 text-xs font-semibold transition-colors cursor-pointer"
+                  >
+                    View Complete Job Specifications →
+                  </button>
+                </div>
+
+                <div className="text-center pt-1 border-t border-slate-100 text-[11px] text-slate-500 flex items-center justify-center gap-1.5">
+                  <Phone className="w-3 h-3 text-blue-600" />
+                  <span>HR Line: </span>
+                  <a href={`tel:${COMPANY_INFO.officialPhone}`} className="text-blue-700 font-bold hover:underline">
+                    {COMPANY_INFO.displayPhone}
+                  </a>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
       </section>

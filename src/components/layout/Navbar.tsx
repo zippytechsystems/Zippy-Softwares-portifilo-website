@@ -227,7 +227,17 @@ export const Navbar: React.FC = () => {
             </nav>
 
             {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2.5">
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-hiring-modal'))}
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 text-xs font-bold transition-colors cursor-pointer"
+                title="We are hiring 4 Digital Marketing Executives"
+              >
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                <span>Hiring (4)</span>
+              </button>
+
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -398,6 +408,18 @@ export const Navbar: React.FC = () => {
 
             {/* Mobile Drawer Bottom Actions */}
             <div className="pt-6 border-t border-slate-200 space-y-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(false);
+                  window.dispatchEvent(new CustomEvent('open-hiring-modal'));
+                }}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 font-bold text-sm transition-colors cursor-pointer"
+              >
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                <span>We're Hiring 4 Digital Marketers</span>
+              </button>
+
               <a
                 href={whatsappUrl}
                 target="_blank"

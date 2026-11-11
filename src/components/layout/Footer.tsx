@@ -11,6 +11,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { Logo } from '../common/Logo';
+import { InstagramIcon, FacebookIcon, LinkedinIcon } from '../common/SocialIcons';
 import { COMPANY_INFO } from '../../data/companyData';
 import { generateWhatsAppUrl } from '../../utils/whatsapp';
 
@@ -49,7 +50,7 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-3">
+            <div className="pt-3 flex flex-wrap items-center gap-3">
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -59,6 +60,58 @@ export const Footer: React.FC = () => {
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>WhatsApp: {COMPANY_INFO.displayPhone}</span>
               </a>
+            </div>
+
+            {/* Official Social Media Pages */}
+            <div className="pt-3">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">
+                Official Social Channels
+              </span>
+              <div className="flex items-center gap-2.5">
+                <a
+                  href={COMPANY_INFO.socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-pink-500 hover:bg-pink-950/40 text-slate-400 hover:text-pink-400 flex items-center justify-center transition-all hover:scale-105"
+                  aria-label="Follow Zippy Enterprises on Instagram"
+                  title="Instagram: @zippyenterprises"
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                </a>
+
+                <a
+                  href={COMPANY_INFO.socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500 hover:bg-blue-950/40 text-slate-400 hover:text-blue-400 flex items-center justify-center transition-all hover:scale-105"
+                  aria-label="Follow Zippy Enterprises on Facebook"
+                  title="Facebook: @zippyenterprises"
+                >
+                  <FacebookIcon className="w-4 h-4" />
+                </a>
+
+                <a
+                  href={COMPANY_INFO.socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-sky-500 hover:bg-sky-950/40 text-slate-400 hover:text-sky-400 flex items-center justify-center transition-all hover:scale-105"
+                  aria-label="Follow Zippy Enterprises on LinkedIn"
+                  title="LinkedIn: Zippy Enterprises Private Limited"
+                >
+                  <LinkedinIcon className="w-4 h-4" />
+                </a>
+
+                <a
+                  href={COMPANY_INFO.socialLinks.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500 hover:bg-emerald-950/40 text-slate-400 hover:text-emerald-400 flex items-center justify-center transition-all hover:scale-105"
+                  aria-label="Connect on WhatsApp"
+                  title="WhatsApp: +91 63026 90251"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -122,9 +175,14 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <span className="text-slate-500 cursor-not-allowed">
-                  Careers (We're Hiring)
-                </span>
+                <button 
+                  type="button"
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-hiring-modal'))}
+                  className="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
+                >
+                  <span>Careers (Hiring 4 Marketers)</span>
+                  <span className="text-[10px] bg-amber-400/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-400/40">4 Open</span>
+                </button>
               </li>
             </ul>
           </div>

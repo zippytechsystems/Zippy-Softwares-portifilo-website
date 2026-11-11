@@ -28,10 +28,11 @@ export const COMPANY_INFO = {
   },
   workingHours: "Monday to Saturday: 9:30 AM – 7:00 PM IST",
   socialLinks: {
-    linkedin: "https://linkedin.com/company/zippy-enterprises-pvt-ltd",
-    twitter: "https://twitter.com/ZippyEnterprises",
-    github: "https://github.com/zippytechsystems",
-    whatsapp: "https://wa.me/916302690251"
+    instagram: "https://www.instagram.com/zippyenterprises",
+    facebook: "https://www.facebook.com/zippyenterprises",
+    linkedin: "https://www.linkedin.com/company/zippy-enterprises",
+    whatsapp: "https://wa.me/916302690251",
+    github: "https://github.com/zippytechsystems"
   },
   stats: [
     { label: "Successful Solutions Delivered", value: "85+" },

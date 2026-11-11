@@ -2,6 +2,8 @@ import React from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { ScrollToTop } from './ScrollToTop';
+import { WhatsAppButton } from '../common/WhatsAppButton';
+import { HiringSideBadge } from '../common/HiringSideBadge';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,7 +11,7 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-slate-800 font-sans selection:bg-blue-600/15 selection:text-blue-950">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-slate-800 font-sans selection:bg-blue-600/15 selection:text-blue-950 relative">
       <ScrollToTop />
       
       {/* Skip to Content for Accessibility */}
@@ -25,6 +27,12 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main id="main-content" className="flex-grow pt-20">
         {children}
       </main>
+
+      {/* Floating Side Hiring Badge & Drawer */}
+      <HiringSideBadge />
+
+      {/* Floating WhatsApp Action Button */}
+      <WhatsAppButton />
 
       <Footer />
     </div>

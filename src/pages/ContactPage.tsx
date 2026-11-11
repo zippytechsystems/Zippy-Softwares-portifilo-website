@@ -12,9 +12,11 @@ import {
   AlertCircle, 
   ArrowRight,
   Navigation,
-  ExternalLink
+  ExternalLink,
+  Briefcase
 } from 'lucide-react';
 import { MetaTags } from '../components/common/MetaTags';
+import { InstagramIcon, FacebookIcon, LinkedinIcon } from '../components/common/SocialIcons';
 import { COMPANY_INFO } from '../data/companyData';
 import { saveEnquiry } from '../utils/storage';
 import { generateWhatsAppUrl } from '../utils/whatsapp';
@@ -544,6 +546,71 @@ export const ContactPage: React.FC = () => {
                   2. We provide an initial technical feasibility overview.<br />
                   3. We schedule a 30-minute scoping call to map sprint milestones.
                 </p>
+              </div>
+
+              {/* Official Social Media Channels */}
+              <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-800">
+                  Connect on Official Social Media
+                </div>
+                <p className="text-xs text-slate-500">
+                  Follow Zippy Enterprises for product launches, tech updates, and service announcements:
+                </p>
+                <div className="grid grid-cols-3 gap-2.5 pt-1">
+                  <a
+                    href={COMPANY_INFO.socialLinks.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center justify-center p-3 rounded-xl bg-pink-50/60 border border-pink-200/80 hover:bg-pink-100 text-pink-700 transition-colors group"
+                    title="Instagram: @zippyenterprises"
+                  >
+                    <InstagramIcon className="w-5 h-5 mb-1 group-hover:scale-110 transition-transform" />
+                    <span className="text-[11px] font-bold">Instagram</span>
+                  </a>
+
+                  <a
+                    href={COMPANY_INFO.socialLinks.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center justify-center p-3 rounded-xl bg-blue-50/60 border border-blue-200/80 hover:bg-blue-100 text-blue-700 transition-colors group"
+                    title="Facebook: @zippyenterprises"
+                  >
+                    <FacebookIcon className="w-5 h-5 mb-1 group-hover:scale-110 transition-transform" />
+                    <span className="text-[11px] font-bold">Facebook</span>
+                  </a>
+
+                  <a
+                    href={COMPANY_INFO.socialLinks.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center justify-center p-3 rounded-xl bg-sky-50/60 border border-sky-200/80 hover:bg-sky-100 text-sky-700 transition-colors group"
+                    title="LinkedIn: Zippy Enterprises Private Limited"
+                  >
+                    <LinkedinIcon className="w-5 h-5 mb-1 group-hover:scale-110 transition-transform" />
+                    <span className="text-[11px] font-bold">LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Recruitment Desk Notice */}
+              <div className="p-5 rounded-2xl bg-amber-50/80 border border-amber-200 text-xs text-slate-800 space-y-2">
+                <div className="font-bold text-slate-900 flex items-center justify-between">
+                  <span className="flex items-center gap-1.5">
+                    <Briefcase className="w-4 h-4 text-amber-600" />
+                    Career Openings: 4 Positions
+                  </span>
+                  <span className="text-[10px] bg-amber-200 text-amber-900 px-2 py-0.5 rounded-full font-bold">Hiring Now</span>
+                </div>
+                <p className="text-slate-600 text-[11px] leading-relaxed">
+                  We are hiring 4 Digital Marketing Executives at our Nacharam office.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-hiring-modal'))}
+                  className="text-xs font-bold text-blue-700 hover:text-blue-800 underline flex items-center gap-1 cursor-pointer pt-1"
+                >
+                  <span>View job specifications & apply →</span>
+                </button>
               </div>
 
             </div>
