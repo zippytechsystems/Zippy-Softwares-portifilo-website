@@ -71,7 +71,7 @@ export const HomePage: React.FC = () => {
   };
 
   const whatsappHeroUrl = generateWhatsAppUrl({
-    projectDescription: "Hello Zippy Enterprises, I would like to explore custom software development for my business."
+    projectDescription: "Hello Zippy Softwares, I would like to explore custom software development for my business."
   });
 
   return (
@@ -91,6 +91,15 @@ export const HomePage: React.FC = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
+          {/* Official Brand Logo Emblem */}
+          <div className="w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-6 rounded-full overflow-hidden shadow-xl border-4 border-white bg-black hover:scale-105 transition-transform duration-300">
+            <img 
+              src="/zippy-logo.jpg" 
+              alt="Zippy Tech Softwares - Innovate • Develop • Deliver" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+
           {/* Top Corporate Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold badge-cyan mb-8 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
@@ -171,7 +180,7 @@ export const HomePage: React.FC = () => {
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold badge-cyan">
                 <Building2 className="w-3.5 h-3.5 text-blue-600" />
-                <span>About Zippy Enterprises Private Limited</span>
+                <span>About Zippy Softwares & Zippy Enterprises</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
@@ -179,7 +188,7 @@ export const HomePage: React.FC = () => {
               </h2>
 
               <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-                <strong className="text-slate-900">Zippy Enterprises Private Limited</strong> is a full-service technology solutions company focused on building modern digital products, robust corporate portals, and intelligent automation systems.
+                <strong className="text-slate-900 font-bold">Zippy Softwares</strong> is the flagship IT services and custom software engineering division of <strong className="text-slate-900 font-bold">{COMPANY_INFO.legalName}</strong>, based in Nacharam, Hyderabad, Telangana. We engineer high-performance web applications, bespoke business software, and autonomous AI automation solutions.
               </p>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">

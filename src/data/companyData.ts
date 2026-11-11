@@ -1,31 +1,37 @@
 export const COMPANY_INFO = {
-  name: "Zippy Enterprises Private Limited",
+  name: "Zippy Softwares",
+  brandName: "Zippy Softwares",
   legalName: "Zippy Enterprises Private Limited",
   tagline: "Building Digital Solutions. Empowering Businesses.",
   subheading: "We help businesses grow with professional web development, custom business applications, and intelligent AI-powered automation solutions.",
   cin: "U72900TG2024PTC184920", // Corporate registration identifier format
   domain: "zippysoftwares.in",
   websiteUrl: "https://zippysoftwares.in",
-  officialEmail: "contact@zippysoftwares.in",
-  supportEmail: "support@zippysoftwares.in",
-  officialPhone: "+91 98480 12345",
-  displayPhone: "+91 98480 12345",
-  whatsappNumber: "919848012345", // Clean number for wa.me links
+  officialEmail: "zippyenterprises7@gmail.com",
+  supportEmail: "zippyenterprises7@gmail.com",
+  officialPhone: "+91 63026 90251",
+  displayPhone: "+91 63026 90251",
+  phoneRaw: "+916302690251",
+  whatsappNumber: "916302690251", // Clean number for wa.me links
   address: {
-    street: "Cyber Towers, Tech Park Boulevard",
-    locality: "HITEC City",
+    building: "Sneha Apartments",
+    street: "HMT Nagar",
+    locality: "Nacharam",
     city: "Hyderabad",
     state: "Telangana",
     country: "India",
-    postalCode: "500081",
-    fullAddress: "Level 4, Cyber Gateway, HITEC City, Hyderabad, Telangana 500081, India"
+    postalCode: "500076",
+    fullAddress: "Sneha Apartments, HMT Nagar, Nacharam, Hyderabad, Telangana 500076, India",
+    landmark: "Near Habsiguda (5 Mins) • Near Uppal (10 Mins) • Near Secunderabad (15 Mins)",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Sneha+Apartments+HMT+Nagar+Nacharam+Hyderabad+500076",
+    embedMapUrl: "https://maps.google.com/maps?q=Sneha+Apartments,+HMT+Nagar,+Nacharam,+Hyderabad,+Telangana+500076&t=&z=16&ie=UTF8&iwloc=&output=embed"
   },
   workingHours: "Monday to Saturday: 9:30 AM – 7:00 PM IST",
   socialLinks: {
     linkedin: "https://linkedin.com/company/zippy-enterprises-pvt-ltd",
     twitter: "https://twitter.com/ZippyEnterprises",
-    github: "https://github.com/zippy-enterprises",
-    whatsapp: "https://wa.me/919848012345"
+    github: "https://github.com/zippytechsystems",
+    whatsapp: "https://wa.me/916302690251"
   },
   stats: [
     { label: "Successful Solutions Delivered", value: "85+" },

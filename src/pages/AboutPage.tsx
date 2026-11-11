@@ -8,7 +8,14 @@ import {
   Award, 
   CheckCircle2, 
   Lock, 
-  ArrowRight
+  ArrowRight,
+  MapPin,
+  Navigation,
+  Phone,
+  Mail,
+  ExternalLink,
+  Clock,
+  MessageSquare
 } from 'lucide-react';
 import { MetaTags } from '../components/common/MetaTags';
 import { SectionHeading } from '../components/common/SectionHeading';
@@ -19,14 +26,24 @@ export const AboutPage: React.FC = () => {
   return (
     <div className="relative overflow-hidden py-12 md:py-16 bg-[#F8FAFC]">
       <MetaTags
-        title="About Us | Corporate Profile & Engineering Principles"
-        description="Learn about Zippy Enterprises Private Limited, our engineering ethos, technology stack standards, corporate governance, and commitment to custom software excellence."
+        title="About Us | Zippy Softwares & Zippy Enterprises Private Limited"
+        description="Learn about Zippy Softwares (A Division of Zippy Enterprises Private Limited), our engineering ethos, technology stack standards, corporate governance, and commitment to custom software excellence."
         canonicalPath="/about"
       />
 
       {/* Hero Header */}
       <section className="relative pb-16 md:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          
+          {/* Official Emblem */}
+          <div className="w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-2 border-slate-200 bg-black hover:scale-105 transition-transform duration-300">
+            <img 
+              src="/zippy-logo.jpg" 
+              alt="Zippy Tech Softwares Emblem" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold badge-cyan mb-6">
             <Building2 className="w-3.5 h-3.5 text-blue-600" />
             <span>Corporate Identity & Heritage</span>
@@ -40,13 +57,17 @@ export const AboutPage: React.FC = () => {
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Zippy Enterprises Private Limited is a registered IT services and software development enterprise headquartered in India's premier technology corridor. We partner with startups, SMBs, and corporations to transform complex business challenges into reliable digital systems.
+            <strong className="text-slate-900 font-bold">Zippy Softwares</strong> is the premier IT services and custom software engineering division of <strong className="text-slate-900 font-bold">{COMPANY_INFO.legalName}</strong>, headquartered in Nacharam, Hyderabad, Telangana. We partner with startups, SMBs, and enterprises to build high-performance web platforms, bespoke mobile apps, and autonomous AI automation systems.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs sm:text-sm text-slate-600">
             <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 shadow-xs">
               <ShieldCheck className="w-4 h-4 text-blue-600" />
               CIN: {COMPANY_INFO.cin}
+            </span>
+            <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 shadow-xs">
+              <MapPin className="w-4 h-4 text-rose-600" />
+              Nacharam, Hyderabad, Telangana
             </span>
             <span className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 shadow-xs">
               <Lock className="w-4 h-4 text-emerald-600" />
@@ -269,9 +290,97 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Corporate Headquarters & Office Location Section */}
+      <section className="py-20 md:py-24 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Corporate Headquarters"
+            title="Our Hyderabad Development Hub"
+            highlightedText="& Registered Office"
+            description="Visit our engineering center or connect directly with our technical leads in Hyderabad, Telangana."
+          />
+
+          <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <div className="p-6 sm:p-8 bg-gradient-to-r from-slate-900 via-[#102747] to-blue-950 text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+                  <Navigation className="w-4 h-4" />
+                  <span>Office Location & Route Directions</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                  Zippy Softwares — Nacharam, Hyderabad Hub
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 font-medium">
+                  {COMPANY_INFO.address.fullAddress}
+                </p>
+                
+                <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px] text-slate-300">
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Near Habsiguda (5 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Near Uppal (10 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Near Secunderabad (15 Mins)</span>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-slate-200">
+                  <a href={`tel:${COMPANY_INFO.officialPhone}`} className="hover:text-cyan-300 flex items-center gap-1.5 transition-colors">
+                    <Phone className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>{COMPANY_INFO.displayPhone}</span>
+                  </a>
+                  <a href={`mailto:${COMPANY_INFO.officialEmail}`} className="hover:text-cyan-300 flex items-center gap-1.5 transition-colors">
+                    <Mail className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>{COMPANY_INFO.officialEmail}</span>
+                  </a>
+                  <span className="flex items-center gap-1.5 text-slate-400">
+                    <Clock className="w-3.5 h-3.5 text-slate-400" />
+                    <span>{COMPANY_INFO.workingHours}</span>
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full lg:w-auto">
+                <a
+                  href={COMPANY_INFO.address.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer"
+                >
+                  <MapPin className="w-4 h-4" />
+                  <span>Get Directions on Google Maps</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+
+                <a
+                  href={`https://wa.me/${COMPANY_INFO.whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>WhatsApp Chat</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Embedded Interactive Google Map */}
+            <div className="w-full h-80 sm:h-96 md:h-[420px] bg-slate-100">
+              <iframe
+                title="Zippy Softwares Office Location Map"
+                src={COMPANY_INFO.address.embedMapUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Corporate Summary & CTA */}
       <CTASection
-        title="Ready to Scale Your Technology with Zippy Enterprises?"
+        title="Ready to Scale Your Technology with Zippy Softwares?"
         subtitle="Schedule a 30-minute architectural consultation with our senior engineering team. No sales pressure—just technical clarity."
       />
     </div>

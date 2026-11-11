@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-4">
             <Logo size="md" variant="dark" />
             <p className="text-slate-300 text-sm leading-relaxed max-w-sm">
-              Zippy Enterprises Private Limited is an enterprise-grade IT services and software development company. We engineer custom web platforms, mission-critical business applications, and autonomous AI automation solutions.
+              <strong className="text-white font-semibold">Zippy Softwares</strong> is the flagship IT services and software development brand of <strong className="text-slate-200">{COMPANY_INFO.legalName}</strong>. We engineer high-performance web platforms, custom enterprise apps, and autonomous AI automation solutions.
             </p>
 
             <div className="pt-2 flex flex-col gap-2 text-xs text-slate-400">
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 text-xs font-semibold hover:bg-emerald-900/40 transition-colors"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
-                <span>Instant WhatsApp Consultation</span>
+                <span>WhatsApp: {COMPANY_INFO.displayPhone}</span>
               </a>
             </div>
           </div>
@@ -137,7 +137,14 @@ export const Footer: React.FC = () => {
             <div className="space-y-3 text-xs sm:text-sm text-slate-300">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5" />
-                <span>{COMPANY_INFO.address.fullAddress}</span>
+                <a 
+                  href={COMPANY_INFO.address.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cyan-400 transition-colors leading-relaxed"
+                >
+                  {COMPANY_INFO.address.fullAddress}
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-cyan-400 flex-shrink-0" />
@@ -163,7 +170,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            &copy; {CURRENT_YEAR} {COMPANY_INFO.legalName}. All rights reserved.
+            &copy; {CURRENT_YEAR} {COMPANY_INFO.name} &bull; A Unit of {COMPANY_INFO.legalName}. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <span>Enterprise IT & Software Engineering</span>

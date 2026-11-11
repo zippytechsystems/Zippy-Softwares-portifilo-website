@@ -10,7 +10,9 @@ import {
   Send, 
   CheckCircle2, 
   AlertCircle, 
-  ArrowRight
+  ArrowRight,
+  Navigation,
+  ExternalLink
 } from 'lucide-react';
 import { MetaTags } from '../components/common/MetaTags';
 import { COMPANY_INFO } from '../data/companyData';
@@ -332,7 +334,7 @@ export const ContactPage: React.FC = () => {
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          placeholder="+91 98480 12345"
+                          placeholder="+91 63026 90251"
                           className={`w-full px-4 py-3 rounded-xl bg-slate-50 border text-slate-900 text-sm focus:outline-none focus:bg-white transition-colors ${
                             errors.phone ? 'border-rose-500 bg-rose-50' : 'border-slate-200 focus:border-blue-500'
                           }`}
@@ -486,7 +488,14 @@ export const ContactPage: React.FC = () => {
                     <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
                     <div>
                       <strong className="text-slate-900 block">Registered Office:</strong>
-                      <span className="text-slate-600 leading-relaxed">{COMPANY_INFO.address.fullAddress}</span>
+                      <a 
+                        href={COMPANY_INFO.address.mapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-600 hover:text-blue-700 leading-relaxed block"
+                      >
+                        {COMPANY_INFO.address.fullAddress}
+                      </a>
                     </div>
                   </div>
 
@@ -539,6 +548,54 @@ export const ContactPage: React.FC = () => {
 
             </div>
 
+          </div>
+
+          {/* Interactive Google Maps Location Section */}
+          <div className="mt-12 bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <div className="p-6 sm:p-8 bg-gradient-to-r from-slate-900 via-[#102747] to-blue-950 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+                  <Navigation className="w-4 h-4" />
+                  <span>Office Location & Route Directions</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                  Zippy Softwares Office — Nacharam, Hyderabad
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300">
+                  {COMPANY_INFO.address.fullAddress}
+                </p>
+                <div className="flex flex-wrap items-center gap-2 pt-2 text-[11px] text-slate-300">
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Near Habsiguda (5 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Near Uppal (10 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Near Secunderabad (15 Mins)</span>
+                </div>
+              </div>
+
+              <a
+                href={COMPANY_INFO.address.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-md transition-all shrink-0 cursor-pointer"
+              >
+                <MapPin className="w-4 h-4" />
+                <span>Get Directions on Google Maps</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+
+            <div className="w-full h-80 sm:h-96 bg-slate-100">
+              <iframe
+                title="Zippy Softwares Office Location Map"
+                src={COMPANY_INFO.address.embedMapUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>

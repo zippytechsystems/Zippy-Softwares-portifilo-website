@@ -11,7 +11,7 @@ interface WhatsAppMessageParams {
 
 export const generateWhatsAppUrl = (params: WhatsAppMessageParams): string => {
   const parts: string[] = [
-    `*Project Enquiry – Zippy Enterprises Private Limited*`,
+    `*Project Enquiry – Zippy Softwares (Zippy Enterprises Pvt Ltd)*`,
     ``
   ];
 
@@ -35,7 +35,7 @@ export const generateWhatsAppUrl = (params: WhatsAppMessageParams): string => {
   }
 
   parts.push(``);
-  parts.push(`Hello Zippy Enterprises team, I would like to schedule a consultation regarding our software project.`);
+  parts.push(`Hello Zippy Softwares team, I would like to schedule a consultation regarding our software project.`);
 
   const messageText = parts.join('\n');
   const encodedText = encodeURIComponent(messageText);
