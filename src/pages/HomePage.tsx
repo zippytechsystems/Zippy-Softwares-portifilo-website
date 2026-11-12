@@ -43,6 +43,9 @@ import { CTASection } from '../components/common/CTASection';
 import { LocalAreasHub } from '../components/common/LocalAreasHub';
 import { HeroServiceSlider } from '../components/common/HeroServiceSlider';
 import { ProjectModal } from '../components/modals/ProjectModal';
+import { InteractiveCanvas3D } from '../components/animations/InteractiveCanvas3D';
+import { Tilt3D } from '../components/animations/Tilt3D';
+import { ScrollReveal } from '../components/animations/ScrollReveal';
 import { COMPANY_INFO } from '../data/companyData';
 import { PORTFOLIO_PROJECTS } from '../data/portfolioData';
 import { PROCESS_STEPS } from '../data/processData';
@@ -106,6 +109,9 @@ export const HomePage: React.FC = () => {
           1. HERO SECTION
           ========================================================================= */}
       <section className="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden bg-gradient-to-b from-blue-50/60 via-white to-[#F8FAFC]">
+        {/* Interactive 3D Neural Mesh Particles Canvas */}
+        <InteractiveCanvas3D className="opacity-50" />
+
         {/* Soft Ambient Radial Accents (Hardware-accelerated single-pass gradient) */}
         <div 
           className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[500px] pointer-events-none rounded-full opacity-60 gpu-layer" 
@@ -114,18 +120,20 @@ export const HomePage: React.FC = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
-          {/* Official Brand Logo Emblem */}
-          <div className="w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-6 rounded-full overflow-hidden shadow-xl border-4 border-white bg-black hover:scale-105 transition-transform duration-300">
-            <img 
-              src="/zippy-logo.jpg" 
-              alt="Zippy Tech Softwares - Innovate • Develop • Deliver" 
-              width="112"
-              height="112"
-              loading="eager"
-              decoding="async"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          {/* Official Brand Logo Emblem with Interactive 3D Tilt */}
+          <Tilt3D maxTilt={14} scale={1.06} className="w-fit mx-auto mb-6">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden shadow-2xl border-4 border-white bg-black transition-transform duration-300">
+              <img 
+                src="/zippy-logo.jpg" 
+                alt="Zippy Tech Softwares - Innovate • Develop • Deliver" 
+                width="112"
+                height="112"
+                loading="eager"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </Tilt3D>
 
           {/* Top Corporate Badge with Local SEO indicator */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold badge-cyan mb-8 shadow-xs">
@@ -323,217 +331,229 @@ export const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Division 1: Web Development */}
-            <div className="group rounded-3xl bg-white border border-slate-200 hover:border-blue-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
-              <div>
-                {/* Service Poster Image */}
-                <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
-                  <img
-                    src="/images/slider-web-development.jpg"
-                    alt="Web Development & Business Portals - Zippy Enterprises"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="px-2.5 py-1 rounded-full bg-blue-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
-                      Division 01
-                    </span>
+            <ScrollReveal delay={0} direction="up" className="h-full">
+              <Tilt3D maxTilt={7} scale={1.02} className="h-full">
+                <div className="group rounded-3xl bg-white border border-slate-200 hover:border-blue-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl h-full">
+                  <div>
+                    {/* Service Poster Image */}
+                    <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
+                      <img
+                        src="/images/slider-web-development.jpg"
+                        alt="Web Development & Business Portals - Zippy Enterprises"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-2.5 left-2.5">
+                        <span className="px-2.5 py-1 rounded-full bg-blue-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
+                          Division 01
+                        </span>
+                      </div>
+                      <div className="absolute bottom-2.5 right-2.5">
+                        <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-cyan-300 text-[10px] font-mono font-medium">
+                          Web & Portals
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1 flex items-center gap-1.5">
+                      <Globe className="w-3.5 h-3.5" />
+                      <span>Division 01</span>
+                    </div>
+
+                    <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                      Web Development
+                    </h3>
+
+                    <p className="mt-3 text-slate-600 text-sm leading-relaxed">
+                      High-speed, SEO-engineered corporate websites, conversion-driven e-commerce platforms, SaaS web applications, and enterprise intranets.
+                    </p>
+
+                    {/* Subcategories */}
+                    <div className="mt-6 pt-6 border-t border-slate-100 space-y-2">
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                        Core Solutions:
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
+                        <span>Business Websites</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
+                        <span>E-commerce Platforms</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
+                        <span>Custom Web Applications</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
+                        <span>Enterprise Portals</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="absolute bottom-2.5 right-2.5">
-                    <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-cyan-300 text-[10px] font-mono font-medium">
-                      Web & Portals
-                    </span>
+
+                  <div className="mt-8 pt-6 border-t border-slate-100">
+                    <Link
+                      to="/services/web-development"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-blue-50 hover:bg-blue-600 border border-blue-200 hover:border-blue-600 text-blue-700 hover:text-white font-bold text-sm transition-all duration-200"
+                    >
+                      <span>Explore Web Services</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
-
-                <div className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1 flex items-center gap-1.5">
-                  <Globe className="w-3.5 h-3.5" />
-                  <span>Division 01</span>
-                </div>
-
-                <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-                  Web Development
-                </h3>
-
-                <p className="mt-3 text-slate-600 text-sm leading-relaxed">
-                  High-speed, SEO-engineered corporate websites, conversion-driven e-commerce platforms, SaaS web applications, and enterprise intranets.
-                </p>
-
-                {/* Subcategories */}
-                <div className="mt-6 pt-6 border-t border-slate-100 space-y-2">
-                  <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                    Core Solutions:
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
-                    <span>Business Websites</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
-                    <span>E-commerce Platforms</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
-                    <span>Custom Web Applications</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
-                    <span>Enterprise Portals</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-slate-100">
-                <Link
-                  to="/services/web-development"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-blue-50 hover:bg-blue-600 border border-blue-200 hover:border-blue-600 text-blue-700 hover:text-white font-bold text-sm transition-all duration-200"
-                >
-                  <span>Explore Web Services</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
+              </Tilt3D>
+            </ScrollReveal>
 
             {/* Division 2: App Development */}
-            <div className="group rounded-3xl bg-white border border-slate-200 hover:border-emerald-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
-              <div>
-                {/* Service Poster Image */}
-                <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
-                  <img
-                    src="/images/slider-app-development.jpg"
-                    alt="Custom Software & App Development - Zippy Enterprises"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="px-2.5 py-1 rounded-full bg-emerald-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
-                      Division 02
-                    </span>
+            <ScrollReveal delay={150} direction="up" className="h-full">
+              <Tilt3D maxTilt={7} scale={1.02} className="h-full">
+                <div className="group rounded-3xl bg-white border border-slate-200 hover:border-emerald-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl h-full">
+                  <div>
+                    {/* Service Poster Image */}
+                    <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
+                      <img
+                        src="/images/slider-app-development.jpg"
+                        alt="Custom Software & App Development - Zippy Enterprises"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-2.5 left-2.5">
+                        <span className="px-2.5 py-1 rounded-full bg-emerald-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
+                          Division 02
+                        </span>
+                      </div>
+                      <div className="absolute bottom-2.5 right-2.5">
+                        <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-emerald-300 text-[10px] font-mono font-medium">
+                          App & Software
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-1 flex items-center gap-1.5">
+                      <Smartphone className="w-3.5 h-3.5" />
+                      <span>Division 02</span>
+                    </div>
+
+                    <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                      App Development
+                    </h3>
+
+                    <p className="mt-3 text-slate-600 text-sm leading-relaxed">
+                      Tailored business operations software, accounting and invoicing engines, CRM & ERP suites, and cross-platform iOS/Android mobile apps.
+                    </p>
+
+                    {/* Subcategories */}
+                    <div className="mt-6 pt-6 border-t border-slate-100 space-y-2">
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                        Core Solutions:
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                        <span>Business Management Apps</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                        <span>Accounting Applications</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                        <span>CRM & ERP Applications</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                        <span>Custom Mobile Applications</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="absolute bottom-2.5 right-2.5">
-                    <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-emerald-300 text-[10px] font-mono font-medium">
-                      App & Software
-                    </span>
+
+                  <div className="mt-8 pt-6 border-t border-slate-100">
+                    <Link
+                      to="/services/app-development"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-600 border border-emerald-200 hover:border-emerald-600 text-emerald-700 hover:text-white font-bold text-sm transition-all duration-200"
+                    >
+                      <span>Explore App Services</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
-
-                <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-1 flex items-center gap-1.5">
-                  <Smartphone className="w-3.5 h-3.5" />
-                  <span>Division 02</span>
-                </div>
-
-                <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-                  App Development
-                </h3>
-
-                <p className="mt-3 text-slate-600 text-sm leading-relaxed">
-                  Tailored business operations software, accounting and invoicing engines, CRM & ERP suites, and cross-platform iOS/Android mobile apps.
-                </p>
-
-                {/* Subcategories */}
-                <div className="mt-6 pt-6 border-t border-slate-100 space-y-2">
-                  <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                    Core Solutions:
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-                    <span>Business Management Apps</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-                    <span>Accounting Applications</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-                    <span>CRM & ERP Applications</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-                    <span>Custom Mobile Applications</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-slate-100">
-                <Link
-                  to="/services/app-development"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-600 border border-emerald-200 hover:border-emerald-600 text-emerald-700 hover:text-white font-bold text-sm transition-all duration-200"
-                >
-                  <span>Explore App Services</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
+              </Tilt3D>
+            </ScrollReveal>
 
             {/* Division 3: AI Agent & Automation */}
-            <div className="group rounded-3xl bg-white border border-slate-200 hover:border-sky-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
-              <div>
-                {/* Service Poster Image */}
-                <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
-                  <img
-                    src="/images/slider-ai-automation.jpg"
-                    alt="AI Agent & Automation Services - Zippy Enterprises"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="px-2.5 py-1 rounded-full bg-sky-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
-                      Division 03
-                    </span>
+            <ScrollReveal delay={300} direction="up" className="h-full">
+              <Tilt3D maxTilt={7} scale={1.02} className="h-full">
+                <div className="group rounded-3xl bg-white border border-slate-200 hover:border-sky-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl h-full">
+                  <div>
+                    {/* Service Poster Image */}
+                    <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
+                      <img
+                        src="/images/slider-ai-automation.jpg"
+                        alt="AI Agent & Automation Services - Zippy Enterprises"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-2.5 left-2.5">
+                        <span className="px-2.5 py-1 rounded-full bg-sky-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
+                          Division 03
+                        </span>
+                      </div>
+                      <div className="absolute bottom-2.5 right-2.5">
+                        <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-sky-300 text-[10px] font-mono font-medium">
+                          AI & Automation
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="text-xs font-bold uppercase tracking-wider text-sky-700 mb-1 flex items-center gap-1.5">
+                      <Bot className="w-3.5 h-3.5" />
+                      <span>Division 03</span>
+                    </div>
+
+                    <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                      AI Agent & Automation
+                    </h3>
+
+                    <p className="mt-3 text-slate-600 text-sm leading-relaxed">
+                      Autonomous LLM chatbots with strict guardrails, conversational AI voice telephony, document OCR pipelines, and multi-system automation.
+                    </p>
+
+                    {/* Subcategories */}
+                    <div className="mt-6 pt-6 border-t border-slate-100 space-y-2">
+                      <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+                        Core Solutions:
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 flex-shrink-0" />
+                        <span>AI Chatbots</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 flex-shrink-0" />
+                        <span>AI Voice Agents</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 flex-shrink-0" />
+                        <span>Business Workflow Automation</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 flex-shrink-0" />
+                        <span>Customer Support Automation</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="absolute bottom-2.5 right-2.5">
-                    <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-sky-300 text-[10px] font-mono font-medium">
-                      AI & Automation
-                    </span>
+
+                  <div className="mt-8 pt-6 border-t border-slate-100">
+                    <Link
+                      to="/services/ai-automation"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-sky-50 hover:bg-sky-600 border border-sky-200 hover:border-sky-600 text-sky-700 hover:text-white font-bold text-sm transition-all duration-200"
+                    >
+                      <span>Explore AI Services</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
-
-                <div className="text-xs font-bold uppercase tracking-wider text-sky-700 mb-1 flex items-center gap-1.5">
-                  <Bot className="w-3.5 h-3.5" />
-                  <span>Division 03</span>
-                </div>
-
-                <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-                  AI Agent & Automation
-                </h3>
-
-                <p className="mt-3 text-slate-600 text-sm leading-relaxed">
-                  Autonomous LLM chatbots with strict guardrails, conversational AI voice telephony, document OCR pipelines, and multi-system automation.
-                </p>
-
-                {/* Subcategories */}
-                <div className="mt-6 pt-6 border-t border-slate-100 space-y-2">
-                  <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-                    Core Solutions:
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 flex-shrink-0" />
-                    <span>AI Chatbots</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 flex-shrink-0" />
-                    <span>AI Voice Agents</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 flex-shrink-0" />
-                    <span>Business Workflow Automation</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-sky-600 flex-shrink-0" />
-                    <span>Customer Support Automation</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-slate-100">
-                <Link
-                  to="/services/ai-automation"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-sky-50 hover:bg-sky-600 border border-sky-200 hover:border-sky-600 text-sky-700 hover:text-white font-bold text-sm transition-all duration-200"
-                >
-                  <span>Explore AI Services</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
+              </Tilt3D>
+            </ScrollReveal>
 
           </div>
         </div>
@@ -559,9 +579,9 @@ export const HomePage: React.FC = () => {
 
           <div className="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Left Column: Interactive Smartphone Device Mockup */}
+            {/* Left Column: Interactive Smartphone Device Mockup with 3D Tilt */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-[320px] sm:max-w-[340px]">
+              <Tilt3D maxTilt={9} scale={1.02} className="relative w-full max-w-[320px] sm:max-w-[340px]">
                 {/* Outer Glow */}
                 <div className="absolute -inset-3 bg-gradient-to-tr from-cyan-500/20 via-blue-600/20 to-indigo-600/20 rounded-[52px] blur-xl opacity-70"></div>
 
@@ -632,7 +652,7 @@ export const HomePage: React.FC = () => {
                   <Zap className="w-4 h-4 text-amber-500" />
                   <span>10x Inbound Conversion</span>
                 </div>
-              </div>
+              </Tilt3D>
             </div>
 
             {/* Right Column: Narrative & Key Automation Capabilities */}

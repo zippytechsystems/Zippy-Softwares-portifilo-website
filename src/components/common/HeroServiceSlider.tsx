@@ -15,6 +15,7 @@ import {
   Phone
 } from 'lucide-react';
 import { generateWhatsAppUrl } from '../../utils/whatsapp';
+import { Tilt3D } from '../animations/Tilt3D';
 
 export interface ServiceSlide {
   id: string;
@@ -161,36 +162,38 @@ export const HeroServiceSlider: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 p-5 sm:p-7 lg:p-9 items-center">
           
-          {/* Left Column: Image with Full Clarity & Zoom Action */}
+          {/* Left Column: Image with Full Clarity, 3D Tilt & Zoom Action */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md group">
-              <img
-                src={currentSlide.image}
-                alt={`${currentSlide.title} - Zippy Enterprises Private Limited`}
-                className="w-full h-auto max-h-[460px] sm:max-h-[520px] object-contain mx-auto transition-transform duration-300 group-hover:scale-101"
-                loading="eager"
-                decoding="async"
-              />
+            <Tilt3D maxTilt={6} scale={1.01} className="w-full">
+              <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md group">
+                <img
+                  src={currentSlide.image}
+                  alt={`${currentSlide.title} - Zippy Enterprises Private Limited`}
+                  className="w-full h-auto max-h-[460px] sm:max-h-[520px] object-contain mx-auto transition-transform duration-300 group-hover:scale-101"
+                  loading="eager"
+                  decoding="async"
+                />
 
-              {/* Clarity & Zoom Overlay Button */}
-              <button
-                type="button"
-                onClick={() => setZoomImage(currentSlide.image)}
-                className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 hover:bg-black/90 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg transition-colors cursor-pointer border border-white/20"
-                title="View Full Clarity High-Res Image"
-              >
-                <Maximize2 className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Full Clarity</span>
-              </button>
+                {/* Clarity & Zoom Overlay Button */}
+                <button
+                  type="button"
+                  onClick={() => setZoomImage(currentSlide.image)}
+                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 hover:bg-black/90 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg transition-colors cursor-pointer border border-white/20"
+                  title="View Full Clarity High-Res Image"
+                >
+                  <Maximize2 className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>Full Clarity</span>
+                </button>
 
-              {/* Tagline Badge */}
-              <div className="absolute top-3 left-3">
-                <span className="px-3 py-1 rounded-full bg-blue-600/90 backdrop-blur-md text-white text-[11px] font-bold border border-white/20 shadow-md flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-cyan-300" />
-                  <span>{currentSlide.tagline}</span>
-                </span>
+                {/* Tagline Badge */}
+                <div className="absolute top-3 left-3">
+                  <span className="px-3 py-1 rounded-full bg-blue-600/90 backdrop-blur-md text-white text-[11px] font-bold border border-white/20 shadow-md flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-cyan-300" />
+                    <span>{currentSlide.tagline}</span>
+                  </span>
+                </div>
               </div>
-            </div>
+            </Tilt3D>
           </div>
 
           {/* Right Column: Slide Information & Direct Conversion Actions */}
