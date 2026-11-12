@@ -1,63 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
   <url>
     <loc>https://zippysoftwares.in/</loc>
     <lastmod>2026-11-12</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://zippysoftwares.in/zippy-logo.jpg</image:loc>
       <image:title>Zippy Softwares - IT Software Company in Nacharam Hyderabad</image:title>
-      <image:caption>Zippy Enterprises Private Limited Official Logo</image:caption>
+      <image:caption>Official Brand Logo of Zippy Enterprises Private Limited</image:caption>
     </image:image>
   </url>
+
+  <!-- Services Overview -->
   <url>
     <loc>https://zippysoftwares.in/services</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zippysoftwares.in/zippy-logo.jpg</image:loc>
+      <image:title>IT Software Engineering & Digital Services - Zippy Softwares</image:title>
+      <image:caption>Web, Mobile Application and AI Automation Solutions</image:caption>
+    </image:image>
   </url>
+
+  <!-- Web Development Division -->
   <url>
     <loc>https://zippysoftwares.in/services/web-development</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zippysoftwares.in/zippy-logo.jpg</image:loc>
+      <image:title>Custom Web Design & Enterprise Portals Hyderabad - Zippy Softwares</image:title>
+      <image:caption>React, Next.js, and E-commerce Web Engineering</image:caption>
+    </image:image>
   </url>
+
+  <!-- App Development Division -->
   <url>
     <loc>https://zippysoftwares.in/services/app-development</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zippysoftwares.in/zippy-logo.jpg</image:loc>
+      <image:title>Android & iOS Mobile App Development - Zippy Softwares</image:title>
+      <image:caption>Flutter, React Native, ERP, CRM and Business Apps</image:caption>
+    </image:image>
   </url>
+
+  <!-- AI Automation Division -->
   <url>
     <loc>https://zippysoftwares.in/services/ai-automation</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zippysoftwares.in/zippy-logo.jpg</image:loc>
+      <image:title>Autonomous AI Agents & Business Automation - Zippy Softwares</image:title>
+      <image:caption>Conversational AI Bots, Voice Telephony and Workflow Pipelines</image:caption>
+    </image:image>
   </url>
+
+  <!-- About Company & Corporate Profile -->
   <url>
     <loc>https://zippysoftwares.in/about</loc>
     <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://zippysoftwares.in/zippy-logo.jpg</image:loc>
+      <image:title>About Zippy Enterprises Private Limited - Nacharam Office</image:title>
+      <image:caption>Corporate Overview, Infrastructure and Leadership Team</image:caption>
+    </image:image>
   </url>
+
+  <!-- Client Portfolio & Case Studies -->
   <url>
     <loc>https://zippysoftwares.in/portfolio</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://zippysoftwares.in/zippy-logo.jpg</image:loc>
+      <image:title>Software Development Portfolio & Projects - Zippy Softwares</image:title>
+      <image:caption>Enterprise Client Delivery and Case Studies</image:caption>
+    </image:image>
   </url>
+
+  <!-- Engineering Process & Methodology -->
   <url>
     <loc>https://zippysoftwares.in/process</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zippysoftwares.in/zippy-logo.jpg</image:loc>
+      <image:title>Agile Software Engineering Lifecycle - Zippy Softwares</image:title>
+      <image:caption>5-Stage Architectural and Deployment Process</image:caption>
+    </image:image>
   </url>
+
+  <!-- Contact & Nacharam Office Map -->
   <url>
     <loc>https://zippysoftwares.in/contact</loc>
     <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zippysoftwares.in/zippy-logo.jpg</image:loc>
+      <image:title>Contact Zippy Softwares - Sneha Apartments Nacharam Hyderabad</image:title>
+      <image:caption>Consultation, Consultation Booking, and Direct Contact</image:caption>
+    </image:image>
   </url>
+
 </urlset>
