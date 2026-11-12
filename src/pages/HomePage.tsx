@@ -120,9 +120,9 @@ export const HomePage: React.FC = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
-          {/* Official Brand Logo Emblem with Interactive 3D Tilt */}
-          <Tilt3D maxTilt={14} scale={1.06} className="w-fit mx-auto mb-6">
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden shadow-2xl border-4 border-white bg-black transition-transform duration-300">
+          {/* Official Brand Logo Emblem with Continuous 3D Floating Tilt & Glow Pulse */}
+          <Tilt3D maxTilt={16} scale={1.08} idleFloat={true} className="w-fit mx-auto mb-6">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden shadow-2xl border-4 border-white bg-black transition-transform duration-300 glow-3d-pulse depth-layer-2">
               <img 
                 src="/zippy-logo.jpg" 
                 alt="Zippy Tech Softwares - Innovate • Develop • Deliver" 
@@ -136,15 +136,15 @@ export const HomePage: React.FC = () => {
           </Tilt3D>
 
           {/* Top Corporate Badge with Local SEO indicator */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold badge-cyan mb-8 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold badge-cyan mb-8 shadow-xs depth-layer-1 image-3d-floating-slow">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
             <span>Near By IT Software Development &bull; Nacharam, Hyderabad 500076</span>
           </div>
 
-          {/* Master Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.12] max-w-5xl mx-auto">
+          {/* Master Headline with 3D Typography Depth & Animated Holographic Shimmer */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.12] max-w-5xl mx-auto text-3d-hero">
             Building Digital Solutions.{' '}
-            <span className="text-gradient-cyan block sm:inline">
+            <span className="text-gradient-cyan-3d block sm:inline">
               Empowering Businesses.
             </span>
           </h1>
@@ -161,7 +161,7 @@ export const HomePage: React.FC = () => {
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-xl mx-auto">
             <Link
               to="/services"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-base transition-all duration-200 shadow-lg shadow-blue-500/20 hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-base transition-all duration-200 shadow-xl shadow-blue-500/25 hover:-translate-y-1 hover:shadow-2xl"
             >
               <span>Explore Services</span>
               <ArrowRight className="w-4 h-4" />
@@ -169,15 +169,15 @@ export const HomePage: React.FC = () => {
 
             <a
               href="#ai-automation-demo"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-300 text-sky-800 font-bold text-base transition-all duration-200 shadow-xs hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-300 text-sky-800 font-bold text-base transition-all duration-200 shadow-sm hover:-translate-y-1 hover:shadow-md"
             >
-              <Play className="w-4 h-4 text-sky-600 fill-sky-600" />
+              <Play className="w-4 h-4 text-sky-600 fill-sky-600 animate-pulse" />
               <span>Watch AI Demo</span>
             </a>
 
             <Link
               to="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-base transition-all duration-200 shadow-sm hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-base transition-all duration-200 shadow-sm hover:-translate-y-1 hover:shadow-md"
             >
               <span>Discuss Project</span>
               <ChevronRight className="w-4 h-4 text-blue-600" />
@@ -198,14 +198,14 @@ export const HomePage: React.FC = () => {
             </a>
           </div>
 
-          {/* Live Metric Strip */}
+          {/* Live Metric Strip with 3D Card Depth */}
           <div className="mt-16 pt-12 border-t border-slate-200 grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-5xl mx-auto">
             {COMPANY_INFO.stats.map((stat, idx) => (
-              <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs">
-                <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-sans">
+              <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm card-3d-depth">
+                <div className="text-3xl sm:text-4xl font-black tracking-tight font-sans text-3d-cyan">
                   {stat.value}
                 </div>
-                <div className="text-xs sm:text-sm text-slate-500 mt-1 font-medium">
+                <div className="text-xs sm:text-sm text-slate-500 mt-1 font-semibold">
                   {stat.label}
                 </div>
               </div>
@@ -332,24 +332,24 @@ export const HomePage: React.FC = () => {
             
             {/* Division 1: Web Development */}
             <ScrollReveal delay={0} direction="up" className="h-full">
-              <Tilt3D maxTilt={7} scale={1.02} className="h-full">
-                <div className="group rounded-3xl bg-white border border-slate-200 hover:border-blue-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl h-full">
+              <Tilt3D maxTilt={10} scale={1.03} idleFloat={true} floatVariant="normal" className="h-full">
+                <div className="group rounded-3xl bg-white border border-slate-200 hover:border-blue-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-2xl h-full card-3d-depth">
                   <div>
-                    {/* Service Poster Image */}
-                    <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
+                    {/* Service Poster Image with 3D Poster Frame */}
+                    <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-sm aspect-[4/3] group/img frame-3d-poster">
                       <img
                         src="/images/slider-web-development.jpg"
                         alt="Web Development & Business Portals - Zippy Enterprises"
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-104"
                         loading="lazy"
                       />
-                      <div className="absolute top-2.5 left-2.5">
-                        <span className="px-2.5 py-1 rounded-full bg-blue-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
+                      <div className="absolute top-2.5 left-2.5 depth-layer-2">
+                        <span className="px-3 py-1 rounded-full bg-blue-600/95 backdrop-blur-md text-white text-[10.5px] font-bold shadow-md">
                           Division 01
                         </span>
                       </div>
-                      <div className="absolute bottom-2.5 right-2.5">
-                        <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-cyan-300 text-[10px] font-mono font-medium">
+                      <div className="absolute bottom-2.5 right-2.5 depth-layer-2">
+                        <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-cyan-300 text-[10.5px] font-mono font-semibold">
                           Web & Portals
                         </span>
                       </div>
@@ -360,7 +360,7 @@ export const HomePage: React.FC = () => {
                       <span>Division 01</span>
                     </div>
 
-                    <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                    <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight text-3d-hero">
                       Web Development
                     </h3>
 
@@ -395,7 +395,7 @@ export const HomePage: React.FC = () => {
                   <div className="mt-8 pt-6 border-t border-slate-100">
                     <Link
                       to="/services/web-development"
-                      className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-blue-50 hover:bg-blue-600 border border-blue-200 hover:border-blue-600 text-blue-700 hover:text-white font-bold text-sm transition-all duration-200"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-blue-50 hover:bg-blue-600 border border-blue-200 hover:border-blue-600 text-blue-700 hover:text-white font-bold text-sm transition-all duration-200 shadow-xs hover:shadow-md"
                     >
                       <span>Explore Web Services</span>
                       <ArrowRight className="w-4 h-4" />
@@ -407,24 +407,24 @@ export const HomePage: React.FC = () => {
 
             {/* Division 2: App Development */}
             <ScrollReveal delay={150} direction="up" className="h-full">
-              <Tilt3D maxTilt={7} scale={1.02} className="h-full">
-                <div className="group rounded-3xl bg-white border border-slate-200 hover:border-emerald-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl h-full">
+              <Tilt3D maxTilt={10} scale={1.03} idleFloat={true} floatVariant="slow" className="h-full">
+                <div className="group rounded-3xl bg-white border border-slate-200 hover:border-emerald-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-2xl h-full card-3d-depth">
                   <div>
-                    {/* Service Poster Image */}
-                    <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
+                    {/* Service Poster Image with 3D Poster Frame */}
+                    <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-sm aspect-[4/3] group/img frame-3d-poster">
                       <img
                         src="/images/slider-app-development.jpg"
                         alt="Custom Software & App Development - Zippy Enterprises"
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-104"
                         loading="lazy"
                       />
-                      <div className="absolute top-2.5 left-2.5">
-                        <span className="px-2.5 py-1 rounded-full bg-emerald-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
+                      <div className="absolute top-2.5 left-2.5 depth-layer-2">
+                        <span className="px-3 py-1 rounded-full bg-emerald-600/95 backdrop-blur-md text-white text-[10.5px] font-bold shadow-md">
                           Division 02
                         </span>
                       </div>
-                      <div className="absolute bottom-2.5 right-2.5">
-                        <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-emerald-300 text-[10px] font-mono font-medium">
+                      <div className="absolute bottom-2.5 right-2.5 depth-layer-2">
+                        <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-emerald-300 text-[10.5px] font-mono font-semibold">
                           App & Software
                         </span>
                       </div>
@@ -435,7 +435,7 @@ export const HomePage: React.FC = () => {
                       <span>Division 02</span>
                     </div>
 
-                    <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                    <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight text-3d-hero">
                       App Development
                     </h3>
 
@@ -470,7 +470,7 @@ export const HomePage: React.FC = () => {
                   <div className="mt-8 pt-6 border-t border-slate-100">
                     <Link
                       to="/services/app-development"
-                      className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-600 border border-emerald-200 hover:border-emerald-600 text-emerald-700 hover:text-white font-bold text-sm transition-all duration-200"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-50 hover:bg-emerald-600 border border-emerald-200 hover:border-emerald-600 text-emerald-700 hover:text-white font-bold text-sm transition-all duration-200 shadow-xs hover:shadow-md"
                     >
                       <span>Explore App Services</span>
                       <ArrowRight className="w-4 h-4" />
@@ -482,24 +482,24 @@ export const HomePage: React.FC = () => {
 
             {/* Division 3: AI Agent & Automation */}
             <ScrollReveal delay={300} direction="up" className="h-full">
-              <Tilt3D maxTilt={7} scale={1.02} className="h-full">
-                <div className="group rounded-3xl bg-white border border-slate-200 hover:border-sky-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl h-full">
+              <Tilt3D maxTilt={10} scale={1.03} idleFloat={true} floatVariant="reverse" className="h-full">
+                <div className="group rounded-3xl bg-white border border-slate-200 hover:border-sky-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-2xl h-full card-3d-depth">
                   <div>
-                    {/* Service Poster Image */}
-                    <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
+                    {/* Service Poster Image with 3D Poster Frame */}
+                    <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-sm aspect-[4/3] group/img frame-3d-poster">
                       <img
                         src="/images/slider-ai-automation.jpg"
                         alt="AI Agent & Automation Services - Zippy Enterprises"
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-104"
                         loading="lazy"
                       />
-                      <div className="absolute top-2.5 left-2.5">
-                        <span className="px-2.5 py-1 rounded-full bg-sky-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
+                      <div className="absolute top-2.5 left-2.5 depth-layer-2">
+                        <span className="px-3 py-1 rounded-full bg-sky-600/95 backdrop-blur-md text-white text-[10.5px] font-bold shadow-md">
                           Division 03
                         </span>
                       </div>
-                      <div className="absolute bottom-2.5 right-2.5">
-                        <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-sky-300 text-[10px] font-mono font-medium">
+                      <div className="absolute bottom-2.5 right-2.5 depth-layer-2">
+                        <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-sky-300 text-[10.5px] font-mono font-semibold">
                           AI & Automation
                         </span>
                       </div>
@@ -510,7 +510,7 @@ export const HomePage: React.FC = () => {
                       <span>Division 03</span>
                     </div>
 
-                    <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                    <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight text-3d-hero">
                       AI Agent & Automation
                     </h3>
 
@@ -545,7 +545,7 @@ export const HomePage: React.FC = () => {
                   <div className="mt-8 pt-6 border-t border-slate-100">
                     <Link
                       to="/services/ai-automation"
-                      className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-sky-50 hover:bg-sky-600 border border-sky-200 hover:border-sky-600 text-sky-700 hover:text-white font-bold text-sm transition-all duration-200"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-sky-50 hover:bg-sky-600 border border-sky-200 hover:border-sky-600 text-sky-700 hover:text-white font-bold text-sm transition-all duration-200 shadow-xs hover:shadow-md"
                     >
                       <span>Explore AI Services</span>
                       <ArrowRight className="w-4 h-4" />
@@ -579,14 +579,14 @@ export const HomePage: React.FC = () => {
 
           <div className="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Left Column: Interactive Smartphone Device Mockup with 3D Tilt */}
+            {/* Left Column: Interactive Smartphone Device Mockup with Continuous 3D Floating Tilt */}
             <div className="lg:col-span-5 flex justify-center">
-              <Tilt3D maxTilt={9} scale={1.02} className="relative w-full max-w-[320px] sm:max-w-[340px]">
-                {/* Outer Glow */}
-                <div className="absolute -inset-3 bg-gradient-to-tr from-cyan-500/20 via-blue-600/20 to-indigo-600/20 rounded-[52px] blur-xl opacity-70"></div>
+              <Tilt3D maxTilt={12} scale={1.04} idleFloat={true} className="relative w-full max-w-[320px] sm:max-w-[340px]">
+                {/* 3D Multi-colored Aura Glow */}
+                <div className="absolute -inset-4 bg-gradient-to-tr from-cyan-500/30 via-blue-600/30 to-indigo-600/30 rounded-[56px] blur-2xl opacity-80 glow-3d-pulse"></div>
 
-                {/* Smartphone Chassis */}
-                <div className="relative rounded-[46px] p-3 sm:p-3.5 bg-gradient-to-b from-slate-800 via-slate-900 to-black shadow-2xl border-4 border-slate-700/70">
+                {/* Smartphone Chassis with 3D Bevel and Depth */}
+                <div className="relative rounded-[48px] p-3 sm:p-3.5 bg-gradient-to-b from-slate-800 via-slate-900 to-black shadow-2xl border-4 border-slate-700/80 depth-layer-1">
                   {/* Dynamic Island / Top Camera */}
                   <div className="w-24 h-4 bg-slate-950 rounded-full mx-auto mb-2.5 flex items-center justify-center gap-1.5 shadow-inner">
                     <span className="w-2 h-2 rounded-full bg-slate-800"></span>
@@ -608,11 +608,11 @@ export const HomePage: React.FC = () => {
                     />
 
                     {/* Floating Audio Toggle Pill */}
-                    <div className="absolute top-3 right-3 z-20">
+                    <div className="absolute top-3 right-3 z-20 depth-layer-2">
                       <button
                         type="button"
                         onClick={toggleMute}
-                        className="px-3 py-1.5 rounded-full bg-black/75 hover:bg-black/90 backdrop-blur-md text-white text-[11px] font-semibold border border-white/20 flex items-center gap-1.5 shadow-lg transition-all cursor-pointer"
+                        className="px-3.5 py-1.5 rounded-full bg-black/80 hover:bg-black backdrop-blur-md text-white text-[11px] font-bold border border-white/30 flex items-center gap-1.5 shadow-xl transition-all cursor-pointer hover:scale-105 active:scale-95"
                         title={isMuted ? "Unmute Sound" : "Mute Sound"}
                       >
                         {isMuted ? (
@@ -630,8 +630,8 @@ export const HomePage: React.FC = () => {
                     </div>
 
                     {/* Floating Live Badge inside screen */}
-                    <div className="absolute top-3 left-3 z-20 pointer-events-none">
-                      <span className="px-2.5 py-1 rounded-full bg-blue-600/85 backdrop-blur-md text-white text-[10px] font-bold border border-white/20 flex items-center gap-1 shadow-md">
+                    <div className="absolute top-3 left-3 z-20 pointer-events-none depth-layer-2">
+                      <span className="px-2.5 py-1 rounded-full bg-blue-600/90 backdrop-blur-md text-white text-[10px] font-bold border border-white/20 flex items-center gap-1 shadow-md">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
                         <span>AI SHOWCASE</span>
                       </span>
@@ -642,13 +642,13 @@ export const HomePage: React.FC = () => {
                   <div className="w-28 h-1 bg-slate-700 rounded-full mx-auto mt-2.5"></div>
                 </div>
 
-                {/* Floating Highlights Outside Phone */}
-                <div className="hidden sm:flex absolute -left-5 bottom-12 px-3.5 py-2 rounded-xl bg-white/95 border border-slate-200 shadow-lg backdrop-blur-sm items-center gap-2 text-xs font-bold text-slate-800">
+                {/* Floating 3D Highlights Outside Phone */}
+                <div className="hidden sm:flex absolute -left-6 bottom-12 px-4 py-2.5 rounded-xl bg-white/95 border border-slate-200 shadow-xl backdrop-blur-md items-center gap-2 text-xs font-bold text-slate-800 depth-layer-2 image-3d-floating-slow">
                   <Bot className="w-4 h-4 text-blue-600" />
                   <span>24/7 Autonomous Agent</span>
                 </div>
 
-                <div className="hidden sm:flex absolute -right-5 top-16 px-3.5 py-2 rounded-xl bg-white/95 border border-slate-200 shadow-lg backdrop-blur-sm items-center gap-2 text-xs font-bold text-slate-800">
+                <div className="hidden sm:flex absolute -right-6 top-16 px-4 py-2.5 rounded-xl bg-white/95 border border-slate-200 shadow-xl backdrop-blur-md items-center gap-2 text-xs font-bold text-slate-800 depth-layer-2 image-3d-floating-reverse">
                   <Zap className="w-4 h-4 text-amber-500" />
                   <span>10x Inbound Conversion</span>
                 </div>
@@ -656,13 +656,13 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* Right Column: Narrative & Key Automation Capabilities */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold badge-cyan">
+            <div className="lg:col-span-7 space-y-6 depth-layer-1">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold badge-cyan shadow-xs">
                 <Sparkles className="w-3.5 h-3.5 text-blue-600" />
                 <span>Zero Hallucinations • Enterprise Grade</span>
               </div>
 
-              <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight text-3d-hero">
                 Transform Routine Operations Into Automated Revenue Engines
               </h3>
 
@@ -670,9 +670,9 @@ export const HomePage: React.FC = () => {
                 Modern businesses lose up to 40% of potential leads due to delayed follow-ups and after-hours silence. Our autonomous AI agents engage prospective buyers instantly, conduct lifelike voice calls, and orchestrate back-office software workflows without human intervention.
               </p>
 
-              {/* 4 Feature Cards */}
+              {/* 4 Feature Cards with 3D Depth */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors">
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors card-3d-depth">
                   <div className="flex items-center gap-2.5 mb-1.5">
                     <div className="p-2 rounded-lg bg-blue-50 text-blue-600">
                       <Bot className="w-4 h-4" />
@@ -684,7 +684,7 @@ export const HomePage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors">
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors card-3d-depth">
                   <div className="flex items-center gap-2.5 mb-1.5">
                     <div className="p-2 rounded-lg bg-sky-50 text-sky-600">
                       <Phone className="w-4 h-4" />
@@ -696,7 +696,7 @@ export const HomePage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors">
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors card-3d-depth">
                   <div className="flex items-center gap-2.5 mb-1.5">
                     <div className="p-2 rounded-lg bg-emerald-50 text-emerald-600">
                       <Zap className="w-4 h-4" />
@@ -708,7 +708,7 @@ export const HomePage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors">
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors card-3d-depth">
                   <div className="flex items-center gap-2.5 mb-1.5">
                     <div className="p-2 rounded-lg bg-purple-50 text-purple-600">
                       <ShieldCheck className="w-4 h-4" />
@@ -1048,11 +1048,18 @@ export const HomePage: React.FC = () => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {PORTFOLIO_PROJECTS.slice(0, 3).map((project) => (
-              <div 
+            {PORTFOLIO_PROJECTS.slice(0, 3).map((project, pIdx) => (
+              <Tilt3D
                 key={project.id}
-                className="rounded-3xl bg-white border border-slate-200 hover:border-blue-400 p-6 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl group"
+                maxTilt={8}
+                scale={1.02}
+                idleFloat={true}
+                floatVariant={pIdx === 0 ? 'normal' : pIdx === 1 ? 'slow' : 'reverse'}
+                className="h-full"
               >
+                <div 
+                  className="rounded-3xl bg-white border border-slate-200 hover:border-blue-400 p-6 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-2xl h-full card-3d-depth group"
+                >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold border ${project.badgeColor || 'badge-cyan'}`}>
@@ -1104,6 +1111,7 @@ export const HomePage: React.FC = () => {
                   </span>
                 </div>
               </div>
+            </Tilt3D>
             ))}
           </div>
 

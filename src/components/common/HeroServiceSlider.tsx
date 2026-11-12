@@ -156,20 +156,20 @@ export const HeroServiceSlider: React.FC = () => {
       </div>
 
       {/* Main Slide Card Container */}
-      <div className="relative rounded-3xl bg-white border border-slate-200 shadow-xl overflow-hidden">
+      <div className="relative rounded-3xl bg-white border border-slate-200 shadow-2xl overflow-hidden card-3d-depth">
         {/* Soft Decorative Ambient Top Accent */}
         <div className={`h-1.5 w-full bg-gradient-to-r ${currentSlide.themeColor}`} />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 p-5 sm:p-7 lg:p-9 items-center">
           
-          {/* Left Column: Image with Full Clarity, 3D Tilt & Zoom Action */}
+          {/* Left Column: Image with Full Clarity, 3D Continuous Floating Tilt & Zoom Action */}
           <div className="lg:col-span-6 relative">
-            <Tilt3D maxTilt={6} scale={1.01} className="w-full">
-              <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md group">
+            <Tilt3D maxTilt={10} scale={1.03} idleFloat={true} className="w-full">
+              <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 frame-3d-poster group">
                 <img
                   src={currentSlide.image}
                   alt={`${currentSlide.title} - Zippy Enterprises Private Limited`}
-                  className="w-full h-auto max-h-[460px] sm:max-h-[520px] object-contain mx-auto transition-transform duration-300 group-hover:scale-101"
+                  className="w-full h-auto max-h-[460px] sm:max-h-[520px] object-contain mx-auto transition-transform duration-500 group-hover:scale-102"
                   loading="eager"
                   decoding="async"
                 />
@@ -178,17 +178,17 @@ export const HeroServiceSlider: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setZoomImage(currentSlide.image)}
-                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 hover:bg-black/90 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg transition-colors cursor-pointer border border-white/20"
+                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/80 hover:bg-black backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 shadow-xl transition-all cursor-pointer border border-white/20 hover:scale-105 active:scale-95"
                   title="View Full Clarity High-Res Image"
                 >
                   <Maximize2 className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Full Clarity</span>
+                  <span>Full Clarity 🔍</span>
                 </button>
 
-                {/* Tagline Badge */}
-                <div className="absolute top-3 left-3">
-                  <span className="px-3 py-1 rounded-full bg-blue-600/90 backdrop-blur-md text-white text-[11px] font-bold border border-white/20 shadow-md flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 text-cyan-300" />
+                {/* Tagline Badge with 3D Depth */}
+                <div className="absolute top-3 left-3 depth-layer-2">
+                  <span className="px-3.5 py-1.5 rounded-full bg-blue-600/95 backdrop-blur-md text-white text-[11px] font-bold border border-white/30 shadow-lg flex items-center gap-1.5 image-3d-floating-slow">
+                    <Sparkles className="w-3.5 h-3.5 text-cyan-300 animate-spin" style={{ animationDuration: '6s' }} />
                     <span>{currentSlide.tagline}</span>
                   </span>
                 </div>
@@ -197,20 +197,20 @@ export const HeroServiceSlider: React.FC = () => {
           </div>
 
           {/* Right Column: Slide Information & Direct Conversion Actions */}
-          <div className="lg:col-span-6 flex flex-col justify-between space-y-5 text-left">
+          <div className="lg:col-span-6 flex flex-col justify-between space-y-5 text-left depth-layer-1">
             <div>
               {/* Division Badge & Slide Indicator */}
               <div className="flex items-center justify-between gap-2 mb-3">
-                <span className={`px-3 py-1 rounded-full text-xs font-bold border ${currentSlide.badgeBg}`}>
+                <span className={`px-3.5 py-1 rounded-full text-xs font-extrabold border shadow-xs ${currentSlide.badgeBg}`}>
                   {currentSlide.badge}
                 </span>
-                <span className="text-xs font-mono font-semibold text-slate-600">
+                <span className="text-xs font-mono font-semibold text-slate-500">
                   Slide {currentIndex + 1} of {SERVICE_SLIDES.length}
                 </span>
               </div>
 
-              {/* Slide Main Heading */}
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              {/* Slide Main Heading with 3D Depth */}
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight text-3d-hero">
                 {currentSlide.title}
               </h2>
 
@@ -224,7 +224,7 @@ export const HeroServiceSlider: React.FC = () => {
                 {currentSlide.highlights.map((point, i) => (
                   <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
                     <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>{point}</span>
+                    <span className="font-medium">{point}</span>
                   </div>
                 ))}
               </div>

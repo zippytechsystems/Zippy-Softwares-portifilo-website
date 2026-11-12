@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 
-interface Particle {
+interface Particle3D {
   x: number;
   y: number;
-  z: number; // depth
+  z: number;
   vx: number;
   vy: number;
   vz: number;
   radius: number;
-  baseRadius: number;
+  color: string;
   alpha: number;
 }
 
@@ -25,41 +25,58 @@ export const InteractiveCanvas3D: React.FC<{ className?: string }> = ({ classNam
 
     let animationFrameId: number;
     let width = (canvas.width = canvas.parentElement?.clientWidth || window.innerWidth);
-    let height = (canvas.height = canvas.parentElement?.clientHeight || 600);
+    let height = (canvas.height = canvas.parentElement?.clientHeight || 650);
 
     const handleResize = () => {
       if (!canvas) return;
       width = canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
-      height = canvas.height = canvas.parentElement?.clientHeight || 600;
+      height = canvas.height = canvas.parentElement?.clientHeight || 650;
     };
     window.addEventListener('resize', handleResize);
 
-    // Particle pool: fewer on small screens for maximum 120fps performance
     const isMobile = window.innerWidth < 768;
-    const count = isMobile ? 28 : 55;
-    const particles: Particle[] = [];
+    const count = isMobile ? 35 : 75;
+    const particles: Particle3D[] = [];
+
+    const colors = [
+      'rgba(2, 132, 199, ',   // Cyan
+      'rgba(37, 99, 235, ',   // Blue
+      'rgba(56, 189, 248, ',  // Sky
+      'rgba(99, 102, 241, '   // Indigo
+    ];
 
     for (let i = 0; i < count; i++) {
       particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        z: Math.random() * 400 + 100, // 3D depth between 100 and 500
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        vz: (Math.random() - 0.5) * 0.25,
-        radius: Math.random() * 2 + 1.2,
-        baseRadius: Math.random() * 2 + 1.2,
-        alpha: Math.random() * 0.4 + 0.2,
+        x: (Math.random() - 0.5) * width * 1.2,
+        y: (Math.random() - 0.5) * height * 1.2,
+        z: (Math.random() - 0.5) * 600,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        vz: (Math.random() - 0.5) * 0.3,
+        radius: Math.random() * 2.2 + 1.2,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        alpha: Math.random() * 0.5 + 0.3,
       });
     }
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       mouseRef.current = {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
+        x: e.clientX - rect.left - width / 2,
+        y: e.clientY - rect.top - height / 2,
         active: true,
       };
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const rect = canvas.getBoundingClientRect();
+        mouseRef.current = {
+          x: e.touches[0].clientX - rect.left - width / 2,
+          y: e.touches[0].clientY - rect.top - height / 2,
+          active: true,
+        };
+      }
     };
 
     const handleMouseLeave = () => {
@@ -68,71 +85,98 @@ export const InteractiveCanvas3D: React.FC<{ className?: string }> = ({ classNam
 
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseleave', handleMouseLeave);
+    canvas.addEventListener('touchmove', handleTouchMove, { passive: true });
+    canvas.addEventListener('touchend', handleMouseLeave);
 
-    const fov = 350; // field of view for 3D projection
+    const fov = 380;
+    let angleY = 0;
+    let angleX = 0;
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Update and project 3D particles
-      const projected: { x: number; y: number; scale: number; alpha: number }[] = [];
+      // Smooth camera rotation based on time + mouse target
+      angleY += 0.0018;
+      const targetAngleX = mouseRef.current.active ? (mouseRef.current.y / height) * 0.35 : 0;
+      const targetAngleY = mouseRef.current.active ? (mouseRef.current.x / width) * 0.35 : 0;
+      angleX += (targetAngleX - angleX) * 0.05;
+
+      const cosY = Math.cos(angleY + targetAngleY);
+      const sinY = Math.sin(angleY + targetAngleY);
+      const cosX = Math.cos(angleX);
+      const sinX = Math.sin(angleX);
+
+      const projected: { x: number; y: number; scale: number; alpha: number; color: string; radius: number }[] = [];
 
       for (let i = 0; i < count; i++) {
         const p = particles[i];
 
-        // 3D position step
+        // Particle velocity step
         p.x += p.vx;
         p.y += p.vy;
         p.z += p.vz;
 
-        // Subtle interactive mouse gravity
-        if (mouseRef.current.active) {
-          const dx = mouseRef.current.x - p.x;
-          const dy = mouseRef.current.y - p.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 180 && dist > 10) {
-            p.x += (dx / dist) * 0.6;
-            p.y += (dy / dist) * 0.6;
-          }
-        }
+        // Space wrapping
+        const boundX = width * 0.65;
+        const boundY = height * 0.65;
+        const boundZ = 300;
+        if (p.x < -boundX) p.x = boundX;
+        if (p.x > boundX) p.x = -boundX;
+        if (p.y < -boundY) p.y = boundY;
+        if (p.y > boundY) p.y = -boundY;
+        if (p.z < -boundZ) p.z = boundZ;
+        if (p.z > boundZ) p.z = -boundZ;
 
-        // Boundary wrapping
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
-        if (p.z < 80) p.z = 500;
-        if (p.z > 500) p.z = 80;
+        // 3D Rotation Transform (Yaw + Pitch)
+        // Y-axis rotation
+        const x1 = p.x * cosY - p.z * sinY;
+        const z1 = p.z * cosY + p.x * sinY;
+        // X-axis rotation
+        const y2 = p.y * cosX - z1 * sinX;
+        const z2 = z1 * cosX + p.y * sinX + 380; // offset camera
 
-        // 3D Perspective Projection
-        const scale = fov / (fov + p.z);
-        const projX = (p.x - width / 2) * scale + width / 2;
-        const projY = (p.y - height / 2) * scale + height / 2;
+        if (z2 <= 20) continue; // Behind camera
 
-        projected.push({ x: projX, y: projY, scale, alpha: p.alpha * scale });
+        const scale = fov / z2;
+        const projX = x1 * scale + width / 2;
+        const projY = y2 * scale + height / 2;
 
-        // Draw particle node
+        const effectiveAlpha = Math.min(1, Math.max(0.1, p.alpha * scale * 1.1));
+        projected.push({
+          x: projX,
+          y: projY,
+          scale,
+          alpha: effectiveAlpha,
+          color: p.color,
+          radius: p.radius * scale
+        });
+
+        // Draw 3D Glowing Particle Node
         ctx.beginPath();
-        ctx.arc(projX, projY, p.radius * scale * 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(37, 99, 235, ${p.alpha * scale * 1.2})`;
+        ctx.arc(projX, projY, Math.max(1, p.radius * scale * 1.3), 0, Math.PI * 2);
+        ctx.fillStyle = `${p.color}${effectiveAlpha})`;
+        ctx.shadowBlur = 8 * scale;
+        ctx.shadowColor = 'rgba(2, 132, 199, 0.6)';
         ctx.fill();
+        ctx.shadowBlur = 0; // reset
       }
 
-      // Draw connecting neural lines in 3D space
-      const maxDistance = isMobile ? 85 : 125;
-      for (let i = 0; i < count; i++) {
-        for (let j = i + 1; j < count; j++) {
+      // Draw 3D Connecting Neural Constellation Lines
+      const maxDistance = isMobile ? 90 : 135;
+      const projLen = projected.length;
+      for (let i = 0; i < projLen; i++) {
+        for (let j = i + 1; j < projLen; j++) {
           const dx = projected[i].x - projected[j].x;
           const dy = projected[i].y - projected[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDistance) {
-            const lineAlpha = (1 - dist / maxDistance) * 0.16 * projected[i].scale;
+            const lineAlpha = (1 - dist / maxDistance) * 0.22 * projected[i].scale;
             ctx.beginPath();
             ctx.moveTo(projected[i].x, projected[i].y);
             ctx.lineTo(projected[j].x, projected[j].y);
             ctx.strokeStyle = `rgba(2, 132, 199, ${lineAlpha})`;
-            ctx.lineWidth = 0.85 * projected[i].scale;
+            ctx.lineWidth = Math.max(0.5, 0.9 * projected[i].scale);
             ctx.stroke();
           }
         }
@@ -148,13 +192,15 @@ export const InteractiveCanvas3D: React.FC<{ className?: string }> = ({ classNam
       window.removeEventListener('resize', handleResize);
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
+      canvas.removeEventListener('touchmove', handleTouchMove);
+      canvas.removeEventListener('touchend', handleMouseLeave);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className={`absolute inset-0 pointer-events-auto z-0 opacity-75 ${className}`}
+      className={`absolute inset-0 pointer-events-auto z-0 opacity-80 ${className}`}
       style={{ touchAction: 'none' }}
     />
   );

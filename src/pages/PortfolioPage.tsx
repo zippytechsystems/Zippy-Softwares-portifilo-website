@@ -12,6 +12,7 @@ import { CTASection } from '../components/common/CTASection';
 import { ProjectModal } from '../components/modals/ProjectModal';
 import { PORTFOLIO_PROJECTS } from '../data/portfolioData';
 import type { Project, ProjectCategory } from '../types';
+import { Tilt3D } from '../components/animations/Tilt3D';
 
 export const PortfolioPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
@@ -132,11 +133,18 @@ export const PortfolioPage: React.FC = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project) => (
-                <div 
+              {filteredProjects.map((project, pIdx) => (
+                <Tilt3D
                   key={project.id}
-                  className="rounded-3xl bg-white border border-slate-200 hover:border-blue-400 p-6 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl group"
+                  maxTilt={8}
+                  scale={1.02}
+                  idleFloat={true}
+                  floatVariant={pIdx % 3 === 0 ? 'normal' : pIdx % 3 === 1 ? 'slow' : 'reverse'}
+                  className="h-full"
                 >
+                  <div 
+                    className="rounded-3xl bg-white border border-slate-200 hover:border-blue-400 p-6 flex flex-col justify-between transition-all duration-300 shadow-md hover:shadow-2xl h-full card-3d-depth group"
+                  >
                   <div>
                     {/* Header Badges */}
                     <div className="flex items-center justify-between gap-2 mb-3">
@@ -201,6 +209,7 @@ export const PortfolioPage: React.FC = () => {
                     </span>
                   </div>
                 </div>
+              </Tilt3D>
               ))}
             </div>
           )}

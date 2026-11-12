@@ -19,6 +19,7 @@ import { CTASection } from '../components/common/CTASection';
 import { FAQAccordion } from '../components/common/FAQAccordion';
 import { SERVICES_DATA } from '../data/servicesData';
 import { generateWhatsAppUrl } from '../utils/whatsapp';
+import { Tilt3D } from '../components/animations/Tilt3D';
 
 export const WebDevelopmentPage: React.FC = () => {
   const service = SERVICES_DATA['web-development'];
@@ -102,35 +103,37 @@ export const WebDevelopmentPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left: Poster with Zoom */}
+            {/* Left: Poster with 3D Continuous Floating Tilt & Zoom */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-xl max-w-md w-full group">
-                <img
-                  src="/images/slider-web-development.jpg"
-                  alt="Web Development & Business Portals Blueprint"
-                  className="w-full h-auto object-contain mx-auto transition-transform duration-300 group-hover:scale-101"
-                  loading="lazy"
-                />
-                <button
-                  type="button"
-                  onClick={() => setIsImageZoomed(true)}
-                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 hover:bg-black/90 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg border border-white/20 transition-all cursor-pointer"
-                  title="View Full Clarity High-Res"
-                >
-                  <Maximize2 className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Full Clarity</span>
-                </button>
-              </div>
+              <Tilt3D maxTilt={11} scale={1.03} idleFloat={true} className="max-w-md w-full">
+                <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-2xl frame-3d-poster group">
+                  <img
+                    src="/images/slider-web-development.jpg"
+                    alt="Web Development & Business Portals Blueprint"
+                    className="w-full h-auto object-contain mx-auto transition-transform duration-500 group-hover:scale-102"
+                    loading="lazy"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setIsImageZoomed(true)}
+                    className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/80 hover:bg-black backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 shadow-xl border border-white/20 transition-all cursor-pointer hover:scale-105 active:scale-95"
+                    title="View Full Clarity High-Res"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>Full Clarity 🔍</span>
+                  </button>
+                </div>
+              </Tilt3D>
             </div>
 
             {/* Right: Service Offerings Breakdown */}
-            <div className="lg:col-span-7 space-y-4">
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200 inline-flex items-center gap-1.5">
+            <div className="lg:col-span-7 space-y-4 depth-layer-1">
+              <span className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200 inline-flex items-center gap-1.5 shadow-xs">
                 <Sparkles className="w-3.5 h-3.5 text-blue-600" />
                 <span>Core Division 01 Overview</span>
               </span>
 
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight text-3d-hero">
                 Modern Websites. Powerful Portals. Real Business Growth.
               </h2>
 

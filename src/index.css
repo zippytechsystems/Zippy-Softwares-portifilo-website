@@ -8,7 +8,7 @@
     --royal-blue: #1769AA;
     --royal-blue-hover: #12538A;
     --cyan-accent: #0284C7;
-    --cyan-glow: rgba(2, 132, 199, 0.15);
+    --cyan-glow: rgba(2, 132, 199, 0.25);
     --slate-bg: #F8FAFC;
     --slate-card: #FFFFFF;
     --slate-border: #E2E8F0;
@@ -67,7 +67,7 @@
   -webkit-transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
 /* Offscreen lazy rendering for butter-smooth 60-120fps scrolling */
@@ -76,11 +76,11 @@
   contain-intrinsic-size: 1px 500px;
 }
 
-/* Lightweight backdrop blur that doesn't choke mobile GPUs */
+/* Lightweight backdrop blur */
 .glass-panel {
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(226, 232, 240, 0.9);
   box-shadow: 0 4px 16px -2px rgba(16, 39, 71, 0.05);
 }
@@ -114,3 +114,183 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* =========================================================================
+   HIGH-IMPACT 3D ANIMATION ENGINE (TEXTS, IMAGES, CARDS & MESH)
+   ========================================================================= */
+
+/* 1. Continuous 3D Floating & Levitation Keyframes */
+@keyframes float3D {
+  0%, 100% {
+    transform: perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+  }
+  25% {
+    transform: perspective(1000px) translateY(-8px) rotateX(2.5deg) rotateY(-3deg) translateZ(15px);
+  }
+  50% {
+    transform: perspective(1000px) translateY(-14px) rotateX(4deg) rotateY(-5deg) translateZ(25px);
+  }
+  75% {
+    transform: perspective(1000px) translateY(-6px) rotateX(1.5deg) rotateY(-2deg) translateZ(12px);
+  }
+}
+
+@keyframes float3DSlow {
+  0%, 100% {
+    transform: perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+  }
+  50% {
+    transform: perspective(1000px) translateY(-10px) rotateX(-3deg) rotateY(4deg) translateZ(20px);
+  }
+}
+
+@keyframes float3DReverse {
+  0%, 100% {
+    transform: perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+  }
+  50% {
+    transform: perspective(1000px) translateY(12px) rotateX(3.5deg) rotateY(-3.5deg) translateZ(15px);
+  }
+}
+
+/* 2. 3D Text Holographic Shimmer Keyframes */
+@keyframes textShimmer3D {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 3. 3D Neon Aura Glow Pulse Keyframes */
+@keyframes glowPulse3D {
+  0%, 100% {
+    box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.25), 0 0 20px rgba(56, 189, 248, 0.2);
+    border-color: rgba(56, 189, 248, 0.4);
+  }
+  50% {
+    box-shadow: 0 25px 60px -8px rgba(2, 132, 199, 0.45), 0 0 35px rgba(56, 189, 248, 0.45);
+    border-color: rgba(2, 132, 199, 0.8);
+  }
+}
+
+@keyframes rotateOrbit3D {
+  0% {
+    transform: perspective(1000px) rotateX(20deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateX(20deg) rotateY(360deg);
+  }
+}
+
+/* 4. Utility Classes for 3D Typography */
+.text-3d-hero {
+  text-shadow: 
+    0 1px 0 #CBD5E1,
+    0 2px 0 #94A3B8,
+    0 3px 0 #64748B,
+    0 5px 12px rgba(15, 23, 42, 0.18),
+    0 12px 24px rgba(2, 132, 199, 0.12);
+  transform: perspective(800px) translateZ(12px);
+  letter-spacing: -0.02em;
+}
+
+.text-3d-cyan {
+  text-shadow: 
+    0 1px 0 #7DD3FC,
+    0 2px 0 #38BDF8,
+    0 3px 0 #0284C7,
+    0 4px 8px rgba(2, 132, 199, 0.35),
+    0 10px 20px rgba(2, 132, 199, 0.2);
+}
+
+.text-gradient-3d-shimmer {
+  background: linear-gradient(135deg, #0F172A 0%, #1E40AF 30%, #0284C7 65%, #38BDF8 85%, #0F172A 100%);
+  background-size: 250% 250%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer3D 5s ease infinite;
+  filter: drop-shadow(0 4px 10px rgba(2, 132, 199, 0.22));
+}
+
+.text-gradient-cyan-3d {
+  background: linear-gradient(135deg, #1D4ED8 0%, #0284C7 50%, #38BDF8 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer3D 4s ease infinite;
+  filter: drop-shadow(0 4px 12px rgba(56, 189, 248, 0.3));
+}
+
+/* 5. Utility Classes for 3D Images and Visual Media */
+.image-3d-floating {
+  animation: float3D 6.5s ease-in-out infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.image-3d-floating-slow {
+  animation: float3DSlow 8s ease-in-out infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.image-3d-floating-reverse {
+  animation: float3DReverse 7s ease-in-out infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.glow-3d-pulse {
+  animation: glowPulse3D 4s ease-in-out infinite;
+}
+
+/* 6. 3D Card Depth & Multi-layer Pop */
+.card-3d-depth {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.card-3d-depth:hover {
+  transform: perspective(1000px) translateY(-8px) rotateX(4deg) scale(1.02);
+  box-shadow: 0 25px 50px -10px rgba(16, 39, 71, 0.16), 0 0 30px rgba(2, 132, 199, 0.2);
+}
+
+.depth-layer-1 {
+  transform: translateZ(15px);
+  transform-style: preserve-3d;
+}
+
+.depth-layer-2 {
+  transform: translateZ(30px);
+  transform-style: preserve-3d;
+}
+
+.depth-layer-3 {
+  transform: translateZ(45px);
+  transform-style: preserve-3d;
+}
+
+/* 3D Glass Frame around High-Resolution Posters */
+.frame-3d-poster {
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  box-shadow: 
+    0 20px 40px -15px rgba(15, 23, 42, 0.25),
+    0 0 25px rgba(2, 132, 199, 0.18),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.frame-3d-poster:hover {
+  box-shadow: 
+    0 35px 70px -15px rgba(15, 23, 42, 0.35),
+    0 0 45px rgba(2, 132, 199, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
