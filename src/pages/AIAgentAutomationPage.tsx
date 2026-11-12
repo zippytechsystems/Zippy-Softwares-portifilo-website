@@ -43,8 +43,9 @@ export const AIAgentAutomationPage: React.FC = () => {
   return (
     <div className="relative overflow-hidden py-12 md:py-16 bg-[#F8FAFC]">
       <MetaTags
-        title="AI Agent & Automation Services | Autonomous LLM Chatbots, Voice Telephony & Workflows"
-        description="Deploy autonomous AI agents, intelligent LLM chatbots, conversational voice agents, and business workflow automation by Zippy Enterprises Private Limited."
+        title="Autonomous AI Agent & Business Workflow Automation Company | Zippy Softwares"
+        description="Deploy cutting-edge autonomous AI agents, 24/7 intelligent customer chatbots, AI voice telephony agents, and end-to-end business workflow automation in Hyderabad, Telangana by Zippy Enterprises Private Limited (Nacharam 500076)."
+        keywords="AI agent automation Hyderabad, autonomous AI agents, AI chatbots Hyderabad, AI voice calling bots, business workflow automation, AI development company Nacharam, LLM agent development Telangana, Zippy Softwares"
         canonicalPath="/services/ai-automation"
       />
 

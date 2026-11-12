@@ -36,6 +36,7 @@ import {
 import { MetaTags } from '../components/common/MetaTags';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { CTASection } from '../components/common/CTASection';
+import { LocalAreasHub } from '../components/common/LocalAreasHub';
 import { ProjectModal } from '../components/modals/ProjectModal';
 import { COMPANY_INFO } from '../data/companyData';
 import { PORTFOLIO_PROJECTS } from '../data/portfolioData';
@@ -81,8 +82,9 @@ export const HomePage: React.FC = () => {
   return (
     <div className="relative overflow-hidden bg-[#F8FAFC]">
       <MetaTags
-        title="Building Digital Solutions. Empowering Businesses."
-        description="Zippy Enterprises Private Limited is an enterprise-grade IT services and software development company specializing in Web Development, Business Apps, and AI Automation."
+        title="Zippy Softwares | IT Software Company in Nacharam, Hyderabad 500076 | Web, App & AI Development"
+        description="Top IT Software Development Company in Nacharam, Hyderabad (500076) - Zippy Enterprises Private Limited. Near by IT services, Custom Web Design, Android & iOS Mobile Apps, and AI Agent Automation serving Nacharam, Habsiguda, Mallapur, Uppal, Cherlapally, Secunderabad, Narapally & LB Nagar."
+        keywords="IT software company near me, software company in Nacharam 500076, web design Hyderabad, web development Nacharam, mobile app development android ios Hyderabad, AI agent automation Hyderabad, IT companies in 500076, software company Habsiguda, web design Uppal, software company Mallapur, software development Cherlapally, IT services Secunderabad, app development Narapally, software company LB Nagar, Zippy Softwares, Zippy Enterprises Private Limited"
         canonicalPath="/"
       />
 
@@ -104,10 +106,10 @@ export const HomePage: React.FC = () => {
             />
           </div>
 
-          {/* Top Corporate Badge */}
+          {/* Top Corporate Badge with Local SEO indicator */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold badge-cyan mb-8 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-            <span>Enterprise IT Services & Custom Software Engineering</span>
+            <span>Near By IT Software Development &bull; Nacharam, Hyderabad 500076</span>
           </div>
 
           {/* Master Headline */}
@@ -822,7 +824,12 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          8. CONTACT CALL-TO-ACTION (CTA)
+          8. LOCAL IT SERVICE AREAS HUB (NACHARAM, HYDERABAD 500076 & SURROUNDING)
+          ========================================================================= */}
+      <LocalAreasHub />
+
+      {/* =========================================================================
+          9. CONTACT CALL-TO-ACTION (CTA)
           ========================================================================= */}
       <CTASection />
 

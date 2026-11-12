@@ -39,8 +39,9 @@ export const ProcessPage: React.FC = () => {
   return (
     <div className="relative overflow-hidden py-12 md:py-16 bg-[#F8FAFC]">
       <MetaTags
-        title="Our Development Process | 7-Stage Software Engineering Lifecycle"
-        description="Discover the structured 7-stage development methodology of Zippy Enterprises Private Limited: from requirement scoping and UI/UX design to agile coding, QA, and 24/7 maintenance."
+        title="7-Stage Software Engineering Process & SDLC | Zippy Softwares Hyderabad"
+        description="Discover the structured 7-stage development methodology of Zippy Enterprises Private Limited: from requirement scoping and UI/UX design to agile coding, QA, and 24/7 maintenance in Nacharam, Hyderabad."
+        keywords="software development lifecycle, agile engineering process, custom software methodology, software QA Hyderabad, Zippy Softwares development process"
         canonicalPath="/process"
       />
 

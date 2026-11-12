@@ -15,7 +15,9 @@ import {
   Mail,
   ExternalLink,
   Clock,
-  MessageSquare
+  MessageSquare,
+  Landmark,
+  Code
 } from 'lucide-react';
 import { MetaTags } from '../components/common/MetaTags';
 import { SectionHeading } from '../components/common/SectionHeading';
@@ -125,6 +127,115 @@ export const AboutPage: React.FC = () => {
               </div>
               <div className="mt-6 pt-6 border-t border-sky-200/60 text-xs text-slate-500">
                 Aspiration: Integrity-first &bull; Technical transparency &bull; Enduring client relationships
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Corporate Structure & Group Verticals */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-[#F8FAFC] to-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Corporate Umbrella"
+            title="Zippy Enterprises Private Limited"
+            highlightedText="& Core Business Verticals"
+            description="A diversified corporate group operating specialized business divisions across Information Technology and Financial Lending."
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
+            
+            {/* Division 1: Zippy Softwares */}
+            <div className="p-8 rounded-3xl bg-white border-2 border-blue-600 shadow-lg relative flex flex-col justify-between">
+              <div className="absolute top-5 right-5">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 border border-blue-200">
+                  Current Portal &bull; IT Division
+                </span>
+              </div>
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 mb-6">
+                  <Code className="w-7 h-7" />
+                </div>
+                <div className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 mb-1">
+                  Technology & Software
+                </div>
+                <h3 className="text-2xl font-black text-slate-900 tracking-tight">
+                  Zippy Softwares
+                </h3>
+                <p className="mt-3 text-slate-600 text-sm leading-relaxed">
+                  The flagship IT services and software development brand of Zippy Enterprises Private Limited. We architect and maintain high-performance web platforms, custom mobile apps, enterprise ERPs, and autonomous AI automation solutions.
+                </p>
+                <div className="mt-5 space-y-2 text-xs text-slate-700">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+                    <span>Custom Web Design, React & Next.js Platforms</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+                    <span>Android & iOS Mobile Application Engineering</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+                    <span>Autonomous AI Agents & Enterprise Workflow Automation</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-xs font-mono text-slate-500 font-semibold">zippysoftwares.in</span>
+                <Link to="/services" className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800">
+                  <span>Explore IT Services</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Division 2: Zippy DSA Loans */}
+            <div className="p-8 rounded-3xl bg-white border border-slate-200 hover:border-amber-400 shadow-sm hover:shadow-lg transition-all relative flex flex-col justify-between">
+              <div className="absolute top-5 right-5">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                  Sister Division &bull; Finance
+                </span>
+              </div>
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 mb-6">
+                  <Landmark className="w-7 h-7" />
+                </div>
+                <div className="text-xs font-mono font-bold uppercase tracking-wider text-amber-700 mb-1">
+                  Banking & Financial Services
+                </div>
+                <h3 className="text-2xl font-black text-slate-900 tracking-tight">
+                  Zippy DSA Loans & Financial Solutions
+                </h3>
+                <p className="mt-3 text-slate-600 text-sm leading-relaxed">
+                  The authorized Direct Selling Agent (DSA) and loan distribution division of Zippy Enterprises Private Limited. Partnered with premier private and public banks and NBFCs across Hyderabad to facilitate seamless personal, business, home, and mortgage loans.
+                </p>
+                <div className="mt-5 space-y-2 text-xs text-slate-700">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Business & MSME Working Capital Loans</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Retail Personal, Home & Mortgage Loans (LAP)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600" />
+                    <span>Powered by our Proprietary Banking & Loan Verification Tech</span>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-xs font-mono text-slate-500 font-semibold">Direct DSA Channel</span>
+                <a 
+                  href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent('Hello Zippy Enterprises, I am inquiring about Zippy DSA Loan Services / Banking Loan Assistance.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>DSA Loan Consultation</span>
+                </a>
               </div>
             </div>
 

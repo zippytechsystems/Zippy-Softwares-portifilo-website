@@ -135,8 +135,9 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="relative overflow-hidden py-12 md:py-16 bg-[#F8FAFC]">
       <MetaTags
-        title="Contact Us & Project Enquiry | Zippy Enterprises Private Limited"
-        description="Schedule a software consultation with Zippy Enterprises Private Limited. Discuss web development, custom business apps, or AI automation with our senior engineering team."
+        title="Contact Zippy Softwares | Office in Nacharam, Hyderabad 500076 | IT Software & Web App Consultation"
+        description="Connect with Zippy Softwares (Zippy Enterprises Private Limited) at Sneha Apartments, HMT Nagar, Nacharam, Hyderabad 500076. Near by IT services, Web Design, Android/iOS App Development, and AI Automation for Nacharam, Habsiguda, Uppal, Cherlapally, Secunderabad, and LB Nagar."
+        keywords="Contact software company Nacharam, IT office Nacharam 500076, software developers near Habsiguda, web designers near Uppal, app developers Cherlapally, IT services Secunderabad, Zippy Softwares address phone number"
         canonicalPath="/contact"
       />
 
@@ -631,10 +632,17 @@ export const ContactPage: React.FC = () => {
                 <p className="text-xs sm:text-sm text-slate-300">
                   {COMPANY_INFO.address.fullAddress}
                 </p>
-                <div className="flex flex-wrap items-center gap-2 pt-2 text-[11px] text-slate-300">
-                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Near Habsiguda (5 Mins)</span>
-                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Near Uppal (10 Mins)</span>
-                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Near Secunderabad (15 Mins)</span>
+                <div className="flex flex-wrap items-center gap-1.5 pt-2 text-[11px] text-slate-300">
+                  <span className="bg-blue-500/20 text-cyan-300 px-2.5 py-1 rounded-md border border-blue-400/30 font-semibold">Nacharam HQ (PIN 500076)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Mallapur (3 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Habsiguda (5 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Cherlapally (7 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Uppal (10 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Secunderabad (15 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Narapally (15 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">LB Nagar (20 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">Tarnaka (8 Mins)</span>
+                  <span className="bg-white/10 px-2.5 py-1 rounded-md border border-white/10">ECIL (10 Mins)</span>
                 </div>
               </div>
 

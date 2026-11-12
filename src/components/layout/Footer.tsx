@@ -225,6 +225,62 @@ export const Footer: React.FC = () => {
 
         </div>
 
+        {/* Local IT Software Service Areas Strip (SEO & Proximity Anchor) */}
+        <div className="py-8 border-b border-slate-800/80 text-xs">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-3">
+            <div className="flex items-center gap-2 text-cyan-400 font-bold uppercase tracking-wider text-[11px]">
+              <MapPin className="w-3.5 h-3.5" />
+              <span>Nearby IT Software Development Coverage &bull; Hyderabad, Telangana</span>
+            </div>
+            <span className="text-slate-400 text-[11px]">
+              Headquarters: Sneha Apartments, HMT Nagar, Nacharam (PIN 500076)
+            </span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            {[
+              { name: "Nacharam (500076)", isHq: true },
+              { name: "Habsiguda (500007)", isHq: false },
+              { name: "Mallapur (500076)", isHq: false },
+              { name: "Uppal (500039)", isHq: false },
+              { name: "Cherlapally (500051)", isHq: false },
+              { name: "Secunderabad (500003)", isHq: false },
+              { name: "Narapally (500088)", isHq: false },
+              { name: "LB Nagar (500074)", isHq: false },
+              { name: "Tarnaka (500017)", isHq: false },
+              { name: "ECIL (500062)", isHq: false },
+              { name: "Boduppal (500092)", isHq: false },
+              { name: "Hyderabad Metro", isHq: false },
+              { name: "Telangana", isHq: false }
+            ].map((loc, idx) => (
+              <a
+                key={idx}
+                href="/#local-seo-hub"
+                className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-colors border ${
+                  loc.isHq
+                    ? 'bg-blue-900/60 text-cyan-300 border-blue-500/50 hover:bg-blue-800/60 font-semibold'
+                    : 'bg-slate-900/80 text-slate-300 border-slate-800 hover:border-slate-700 hover:text-white'
+                }`}
+              >
+                {loc.name}
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-4 pt-3 border-t border-slate-800/40 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-slate-400">
+            <span className="text-slate-400 font-semibold">Specialized Local Services:</span>
+            <span>Near By IT Software Development</span>
+            <span>&bull;</span>
+            <span>Custom Web Design & Development</span>
+            <span>&bull;</span>
+            <span>Android & iOS Mobile App Development</span>
+            <span>&bull;</span>
+            <span>Autonomous AI Agent Automation</span>
+            <span>&bull;</span>
+            <span>Enterprise ERP & CRM Software</span>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>

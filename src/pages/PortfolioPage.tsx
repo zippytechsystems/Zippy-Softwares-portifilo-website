@@ -42,8 +42,9 @@ export const PortfolioPage: React.FC = () => {
   return (
     <div className="relative overflow-hidden py-12 md:py-16 bg-[#F8FAFC]">
       <MetaTags
-        title="Our Portfolio & Projects | Client Systems, Case Studies & Enterprise Demos"
-        description="Explore enterprise software projects built by Zippy Enterprises Private Limited across web applications, business software, mobile applications, and AI automation."
+        title="Software Portfolio & Case Studies | Zippy Softwares Hyderabad"
+        description="Explore enterprise software projects built by Zippy Enterprises Private Limited across web applications, business software, mobile applications, and AI automation for clients in Hyderabad and globally."
+        keywords="software portfolio Hyderabad, web development case studies, mobile app projects, AI automation live demos, Zippy Softwares portfolio"
         canonicalPath="/portfolio"
       />
 

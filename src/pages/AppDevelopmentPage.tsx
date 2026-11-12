@@ -42,8 +42,9 @@ export const AppDevelopmentPage: React.FC = () => {
   return (
     <div className="relative overflow-hidden py-12 md:py-16 bg-[#F8FAFC]">
       <MetaTags
-        title="App Development Services | Business Apps, ERP, Accounting & Mobile Apps"
-        description="Enterprise app development by Zippy Enterprises Private Limited. Field service business apps, GST accounting software, custom CRM/ERP suites, and iOS/Android mobile applications."
+        title="Android & iOS Mobile App Development Company in Hyderabad | Zippy Softwares"
+        description="Premier Android and iOS Mobile Application Development Company based in Nacharam, Hyderabad (500076) - Zippy Enterprises Private Limited. High-performance native & cross-platform Flutter/React Native mobile apps, custom enterprise ERPs, and business management software."
+        keywords="mobile app development Hyderabad, android and ios app development, app developers near me, mobile app development Nacharam 500076, flutter app development Hyderabad, react native app developers, custom business mobile applications, Zippy Softwares"
         canonicalPath="/services/app-development"
       />
 

@@ -34,8 +34,9 @@ export const ServicesPage: React.FC = () => {
   return (
     <div className="relative overflow-hidden py-12 md:py-16 bg-[#F8FAFC]">
       <MetaTags
-        title="Our Services & Core Technology Divisions"
-        description="Explore the three core software divisions of Zippy Enterprises Private Limited: Web Development, App Development, and AI Agent & Automation Solutions."
+        title="IT Software Services & Engineering Divisions | Zippy Softwares Hyderabad"
+        description="Explore the three core software divisions of Zippy Enterprises Private Limited in Nacharam, Hyderabad 500076: Custom Web Development, Android & iOS App Development, and AI Agent Automation Solutions."
+        keywords="IT services Hyderabad, software development divisions, web design services, mobile app development Hyderabad, AI agent automation, custom software services Nacharam"
         canonicalPath="/services"
       />
 

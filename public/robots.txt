@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
 
+# Allow all major search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Canonical Host
+Host: https://zippysoftwares.in
+
+# XML Sitemap
 Sitemap: https://zippysoftwares.in/sitemap.xml

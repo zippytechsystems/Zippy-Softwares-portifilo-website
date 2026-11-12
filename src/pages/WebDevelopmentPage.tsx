@@ -40,8 +40,9 @@ export const WebDevelopmentPage: React.FC = () => {
   return (
     <div className="relative overflow-hidden py-12 md:py-16 bg-[#F8FAFC]">
       <MetaTags
-        title="Web Development Services | Corporate Websites, E-commerce & SaaS Portals"
-        description="Bespoke web development by Zippy Enterprises Private Limited. High-performance corporate websites, scalable e-commerce platforms, custom web applications, and secure enterprise portals."
+        title="Web Design & Development Company in Nacharam, Hyderabad | Zippy Softwares"
+        description="Top Web Design and Web Development Company in Nacharam, Hyderabad (500076) by Zippy Enterprises Private Limited. Modern responsive corporate websites, high-converting e-commerce platforms, and custom React/Next.js web applications for businesses in Nacharam, Habsiguda, Mallapur, Uppal & Secunderabad."
+        keywords="web design company in Nacharam, web development Hyderabad, website designers near me, website development Habsiguda, web design Uppal, web developers Secunderabad, custom web application development, React Nextjs web development Hyderabad, Zippy Softwares"
         canonicalPath="/services/web-development"
       />
 

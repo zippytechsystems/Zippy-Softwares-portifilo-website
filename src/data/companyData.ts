@@ -23,16 +23,35 @@ export const COMPANY_INFO = {
     postalCode: "500076",
     fullAddress: "Sneha Apartments, HMT Nagar, Nacharam, Hyderabad, Telangana 500076, India",
     landmark: "Near Habsiguda (5 Mins) • Near Uppal (10 Mins) • Near Secunderabad (15 Mins)",
+    geo: {
+      latitude: 17.4326,
+      longitude: 78.5583
+    },
+    serviceAreas: [
+      "Nacharam (500076)",
+      "Habsiguda (500007)",
+      "Mallapur (500076)",
+      "Uppal (500039)",
+      "Cherlapally (500051)",
+      "Secunderabad (500003)",
+      "Narapally (500088)",
+      "LB Nagar (500074)",
+      "Tarnaka (500017)",
+      "ECIL (500062)",
+      "Boduppal (500092)",
+      "Hyderabad",
+      "Telangana"
+    ],
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=Sneha+Apartments+HMT+Nagar+Nacharam+Hyderabad+500076",
     embedMapUrl: "https://maps.google.com/maps?q=Sneha+Apartments,+HMT+Nagar,+Nacharam,+Hyderabad,+Telangana+500076&t=&z=16&ie=UTF8&iwloc=&output=embed"
   },
   workingHours: "Monday to Saturday: 9:30 AM – 7:00 PM IST",
   socialLinks: {
-    instagram: "https://www.instagram.com/zippyenterprises",
+    instagram: "https://www.instagram.com/zippysoftwares",
     facebook: "https://www.facebook.com/zippyenterprises",
     linkedin: "https://www.linkedin.com/company/zippy-enterprises",
     whatsapp: "https://wa.me/916302690251",
-    github: "https://github.com/zippytechsystems"
+    github: "https://github.com/zippyenterprises"
   },
   stats: [
     { label: "Successful Solutions Delivered", value: "85+" },
@@ -40,6 +59,26 @@ export const COMPANY_INFO = {
     { label: "Core Industry Verticals", value: "10+" },
     { label: "Uptime & System Reliability", value: "99.98%" }
   ],
+  corporateStructure: {
+    parentCompany: "Zippy Enterprises Private Limited",
+    cin: "U72900TG2024PTC184920",
+    ventures: [
+      {
+        id: "zippy-softwares",
+        name: "Zippy Softwares",
+        focus: "IT Services, Web & Mobile App Development, AI Agent Automation",
+        domain: "zippysoftwares.in",
+        description: "Flagship digital engineering division building custom web portals, iOS/Android business apps, and autonomous AI automation pipelines."
+      },
+      {
+        id: "zippy-dsa-loans",
+        name: "Zippy DSA Loans",
+        focus: "Authorized Banking Channel Partner & Loan Distribution (DSA)",
+        services: ["Business Loans", "Personal Loans", "Home Loans", "Mortgage / LAP", "Machinery Loans"],
+        description: "Official loan distribution and direct selling agent division partnering with leading banks and NBFCs for seamless retail & business lending."
+      }
+    ]
+  },
   divisions: [
     {
       id: "web-development",
