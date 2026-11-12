@@ -92,8 +92,11 @@ export const HomePage: React.FC = () => {
           1. HERO SECTION
           ========================================================================= */}
       <section className="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden bg-gradient-to-b from-blue-50/60 via-white to-[#F8FAFC]">
-        {/* Soft Ambient Radial Accents */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-blue-400/10 via-sky-300/10 to-transparent blur-[120px] pointer-events-none rounded-full" />
+        {/* Soft Ambient Radial Accents (Hardware-accelerated single-pass gradient) */}
+        <div 
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[500px] pointer-events-none rounded-full opacity-60 gpu-layer" 
+          style={{ background: 'radial-gradient(ellipse 650px 350px at 50% 30%, rgba(56, 189, 248, 0.15), rgba(37, 99, 235, 0.05), transparent 70%)' }}
+        />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
@@ -102,6 +105,10 @@ export const HomePage: React.FC = () => {
             <img 
               src="/zippy-logo.jpg" 
               alt="Zippy Tech Softwares - Innovate • Develop • Deliver" 
+              width="112"
+              height="112"
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </div>
@@ -279,7 +286,7 @@ export const HomePage: React.FC = () => {
       {/* =========================================================================
           3. OUR THREE CORE DIVISIONS
           ========================================================================= */}
-      <section className="py-20 md:py-28 bg-[#F8FAFC]">
+      <section className="py-20 md:py-28 bg-[#F8FAFC] performance-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Three Core Divisions"
@@ -459,7 +466,7 @@ export const HomePage: React.FC = () => {
       {/* =========================================================================
           4. WHY CHOOSE US
           ========================================================================= */}
-      <section className="py-20 md:py-28 bg-white border-y border-slate-200">
+      <section className="py-20 md:py-28 bg-white border-y border-slate-200 performance-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Engineering Standards"
@@ -492,13 +499,15 @@ export const HomePage: React.FC = () => {
       {/* =========================================================================
           CAREER SPOTLIGHT: HIRING 4 DIGITAL MARKETING EXECUTIVES
           ========================================================================= */}
-      <section className="py-16 md:py-20 bg-gradient-to-r from-slate-900 via-[#102747] to-blue-950 text-white relative overflow-hidden">
-        {/* Soft decorative background accents */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="py-16 md:py-20 bg-gradient-to-r from-slate-900 via-[#102747] to-blue-950 text-white relative overflow-hidden performance-section">
+        {/* Soft decorative background accents (Zero GPU blur overhead) */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-40 gpu-layer" 
+          style={{ background: 'radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.2), transparent 45%), radial-gradient(circle at 10% 80%, rgba(16, 185, 129, 0.15), transparent 45%)' }}
+        />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-7 sm:p-10 lg:p-12 shadow-2xl">
+          <div className="bg-white/10 border border-white/15 rounded-3xl p-7 sm:p-10 lg:p-12 shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
               {/* Left Column: Job Overview */}
@@ -611,7 +620,7 @@ export const HomePage: React.FC = () => {
       {/* =========================================================================
           5. OUR DEVELOPMENT PROCESS
           ========================================================================= */}
-      <section className="py-20 md:py-28 bg-[#F8FAFC]">
+      <section className="py-20 md:py-28 bg-[#F8FAFC] performance-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Our Development Process"
@@ -685,7 +694,7 @@ export const HomePage: React.FC = () => {
       {/* =========================================================================
           6. INDUSTRIES WE SERVE
           ========================================================================= */}
-      <section className="py-20 md:py-28 bg-white border-y border-slate-200">
+      <section className="py-20 md:py-28 bg-white border-y border-slate-200 performance-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Industry Expertise"
@@ -741,7 +750,7 @@ export const HomePage: React.FC = () => {
       {/* =========================================================================
           7. FEATURED PORTFOLIO PREVIEWS
           ========================================================================= */}
-      <section className="py-20 md:py-28 bg-[#F8FAFC]">
+      <section className="py-20 md:py-28 bg-[#F8FAFC] performance-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             badge="Proven Solutions"

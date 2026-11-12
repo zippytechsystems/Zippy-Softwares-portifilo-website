@@ -57,7 +57,7 @@ export const WhatsAppButton: React.FC = () => {
       {/* Floating Bottom-Right Trigger Button */}
       <aside 
         aria-label="Direct WhatsApp Contact" 
-        className="fixed bottom-6 right-6 z-50 flex items-end flex-col"
+        className="fixed bottom-6 right-6 z-50 flex items-end flex-col gpu-layer"
       >
         {/* Hover Tooltip Card */}
         {!isOpen && showTooltip && (

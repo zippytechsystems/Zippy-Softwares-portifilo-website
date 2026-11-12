@@ -24,8 +24,11 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="relative bg-[#0A1628] text-slate-400 border-t border-slate-800 pt-16 pb-12 overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Subtle background glow (Zero blur cost) */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-30 gpu-layer" 
+        style={{ background: 'radial-gradient(circle at 30% 0%, rgba(37, 99, 235, 0.15), transparent 50%)' }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

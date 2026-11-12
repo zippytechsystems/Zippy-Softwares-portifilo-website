@@ -38,7 +38,7 @@ export const LocalAreasHub: React.FC = () => {
   return (
     <section 
       id="local-seo-hub"
-      className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50/70 to-blue-50/30 border-y border-slate-200 relative overflow-hidden"
+      className="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50/70 to-blue-50/30 border-y border-slate-200 relative overflow-hidden performance-section"
       itemScope 
       itemType="https://schema.org/LocalBusiness"
     >
@@ -73,9 +73,11 @@ export const LocalAreasHub: React.FC = () => {
         <meta itemProp="longitude" content={PRIMARY_LOCATION.longitude.toString()} />
       </div>
 
-      {/* Decorative ambient background accents */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-0 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Decorative ambient background accents (Zero GPU blur) */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-25 gpu-layer" 
+        style={{ background: 'radial-gradient(circle at 90% 30%, rgba(59, 130, 246, 0.15), transparent 45%), radial-gradient(circle at 10% 70%, rgba(6, 182, 212, 0.15), transparent 45%)' }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -100,7 +102,7 @@ export const LocalAreasHub: React.FC = () => {
           <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 mb-3 text-center sm:text-left">
             Select Service Area to view local coverage & drive time:
           </div>
-          <div className="flex items-center gap-2 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-300">
+          <div className="flex items-center gap-2 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-slate-300 touch-pan-x overscroll-contain">
             {TARGET_LOCALITIES.map((area) => {
               const isSelected = selectedArea.slug === area.slug;
               return (

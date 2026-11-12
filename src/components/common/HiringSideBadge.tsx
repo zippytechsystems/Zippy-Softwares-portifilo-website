@@ -38,7 +38,7 @@ export const HiringSideBadge: React.FC = () => {
       {/* Floating Side Badge (Left Edge) */}
       <aside 
         aria-label="Career Opportunities Badge" 
-        className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden sm:flex"
+        className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden sm:flex gpu-layer"
       >
         <button
           type="button"

@@ -45,6 +45,10 @@ export const Logo: React.FC<LogoProps> = ({
         <img 
           src="/zippy-logo.jpg" 
           alt="Zippy Tech Softwares Emblem" 
+          width="48"
+          height="48"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover"
         />
       </div>
