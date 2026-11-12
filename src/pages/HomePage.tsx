@@ -41,6 +41,7 @@ import { MetaTags } from '../components/common/MetaTags';
 import { SectionHeading } from '../components/common/SectionHeading';
 import { CTASection } from '../components/common/CTASection';
 import { LocalAreasHub } from '../components/common/LocalAreasHub';
+import { HeroServiceSlider } from '../components/common/HeroServiceSlider';
 import { ProjectModal } from '../components/modals/ProjectModal';
 import { COMPANY_INFO } from '../data/companyData';
 import { PORTFOLIO_PROJECTS } from '../data/portfolioData';
@@ -144,6 +145,9 @@ export const HomePage: React.FC = () => {
           <p className="mt-6 text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto font-normal leading-relaxed">
             {COMPANY_INFO.subheading}
           </p>
+
+          {/* Featured Core Services UI/UX Interactive Slide Showcase */}
+          <HeroServiceSlider />
 
           {/* Call-to-Action Buttons */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-xl mx-auto">
