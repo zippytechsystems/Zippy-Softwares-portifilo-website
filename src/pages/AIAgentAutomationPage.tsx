@@ -11,7 +11,10 @@ import {
   Zap, 
   ShieldCheck, 
   Lock,
-  Server
+  Server,
+  Maximize2,
+  X,
+  Sparkles
 } from 'lucide-react';
 import { MetaTags } from '../components/common/MetaTags';
 import { SectionHeading } from '../components/common/SectionHeading';
@@ -23,6 +26,7 @@ import { generateWhatsAppUrl } from '../utils/whatsapp';
 export const AIAgentAutomationPage: React.FC = () => {
   const service = SERVICES_DATA['ai-automation'];
   const [activeCategoryId, setActiveCategoryId] = useState<string>(service.categories[0].id);
+  const [isImageZoomed, setIsImageZoomed] = useState<boolean>(false);
 
   const activeCategory = service.categories.find(c => c.id === activeCategoryId) || service.categories[0];
 
@@ -92,6 +96,87 @@ export const AIAgentAutomationPage: React.FC = () => {
                 <div className="text-xs text-slate-500 mt-1 font-medium">{m.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Service Blueprint & Capabilities Poster */}
+      <section className="py-14 bg-white border-y border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left: Poster with Zoom */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-xl max-w-md w-full group">
+                <img
+                  src="/images/slider-ai-automation.jpg"
+                  alt="AI Automation Services & Agents Blueprint"
+                  className="w-full h-auto object-contain mx-auto transition-transform duration-300 group-hover:scale-101"
+                  loading="lazy"
+                />
+                <button
+                  type="button"
+                  onClick={() => setIsImageZoomed(true)}
+                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 hover:bg-black/90 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg border border-white/20 transition-all cursor-pointer"
+                  title="View Full Clarity High-Res"
+                >
+                  <Maximize2 className="w-3.5 h-3.5 text-sky-400" />
+                  <span>Full Clarity</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Right: Service Offerings Breakdown */}
+            <div className="lg:col-span-7 space-y-4">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-sky-50 text-sky-700 border border-sky-200 inline-flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-sky-600" />
+                <span>Core Division 03 Overview</span>
+              </span>
+
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Work Smarter, Not Harder! Let AI Automate Your Business
+              </h2>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Deploy autonomous customer support chatbots, conversational voice telephony agents, and end-to-end task automation pipelines that operate 24/7 with zero human intervention.
+              </p>
+
+              {/* Service Grid from Poster */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 pt-2 text-xs">
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900 block font-semibold">WhatsApp Automation</strong>
+                    <span className="text-slate-500 text-[11px]">Chatbots & auto-replies</span>
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900 block font-semibold">Voice AI Calling</strong>
+                    <span className="text-slate-500 text-[11px]">Sub-500ms voice bots</span>
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900 block font-semibold">Workflow & OCR</strong>
+                    <span className="text-slate-500 text-[11px]">Invoice & PDF parsing</span>
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900 block font-semibold">Google Sheets & CRM Sync</strong>
+                    <span className="text-slate-500 text-[11px]">Real-time data piping</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -317,6 +402,33 @@ export const AIAgentAutomationPage: React.FC = () => {
         title="Ready to Automate Your Business Operations with AI?"
         subtitle="Schedule an AI strategy discovery call with our machine learning architects. We identify your highest-ROI automation opportunities."
       />
+
+      {/* Full-Screen Clarity Lightbox Modal */}
+      {isImageZoomed && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={() => setIsImageZoomed(false)}
+        >
+          <div 
+            className="relative max-w-4xl max-h-[90vh] bg-slate-950 rounded-2xl overflow-hidden p-2 border border-white/20 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setIsImageZoomed(false)}
+              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/80 hover:bg-black text-white flex items-center justify-center border border-white/20 cursor-pointer transition-colors"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <img
+              src="/images/slider-ai-automation.jpg"
+              alt="AI Automation Blueprint Full Clarity - Zippy Enterprises"
+              className="max-h-[85vh] w-auto mx-auto object-contain rounded-xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

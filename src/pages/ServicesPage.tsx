@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Globe, 
   Smartphone, 
   Bot, 
   ArrowRight, 
-  Layers
+  Layers,
+  Maximize2,
+  X
 } from 'lucide-react';
 import { MetaTags } from '../components/common/MetaTags';
 import { CTASection } from '../components/common/CTASection';
 import { FAQAccordion } from '../components/common/FAQAccordion';
 
 export const ServicesPage: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const masterFaqs = [
     {
       question: "Which division should I engage for our business needs?",
@@ -111,32 +114,22 @@ export const ServicesPage: React.FC = () => {
             </div>
 
             <div className="lg:col-span-6">
-              <div className="rounded-3xl bg-slate-50 border border-blue-200 p-8 shadow-lg">
-                <div className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-4">
-                  Division Highlights & Benchmarks
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                    <div className="text-2xl font-black text-slate-900">&lt; 1.2s</div>
-                    <div className="text-xs text-slate-500 mt-1">Average First Contentful Paint</div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                    <div className="text-2xl font-black text-slate-900">100%</div>
-                    <div className="text-xs text-slate-500 mt-1">Mobile & Tablet Responsive</div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                    <div className="text-2xl font-black text-slate-900">99.9%</div>
-                    <div className="text-xs text-slate-500 mt-1">Cloud Server Availability</div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                    <div className="text-2xl font-black text-slate-900">A+</div>
-                    <div className="text-xs text-slate-500 mt-1">SSL Security & OWASP Rating</div>
-                  </div>
-                </div>
-                <div className="mt-6 pt-5 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-                  <span>Stack: React &bull; Next.js &bull; Node &bull; Tailwind</span>
-                  <span className="text-blue-700 font-semibold">Ready to deploy</span>
-                </div>
+              <div className="rounded-3xl bg-slate-900 border border-slate-200 overflow-hidden shadow-xl relative group">
+                <img
+                  src="/images/slider-web-development.jpg"
+                  alt="Web Development & Business Portals - Zippy Enterprises"
+                  className="w-full h-auto max-h-[480px] object-contain mx-auto"
+                  loading="lazy"
+                />
+                <button
+                  type="button"
+                  onClick={() => setSelectedImage('/images/slider-web-development.jpg')}
+                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 hover:bg-black/90 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg border border-white/20 transition-all cursor-pointer"
+                  title="View Full Clarity High-Res"
+                >
+                  <Maximize2 className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>Full Clarity</span>
+                </button>
               </div>
             </div>
 
@@ -150,32 +143,22 @@ export const ServicesPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             <div className="lg:col-span-6 order-2 lg:order-1">
-              <div className="rounded-3xl bg-slate-50 border border-emerald-200 p-8 shadow-lg">
-                <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-4">
-                  Enterprise Operational Capabilities
-                </div>
-                <div className="space-y-3">
-                  <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-900">Offline-First Synchronization</span>
-                    <span className="text-xs text-emerald-700 font-mono font-semibold">SQLite + Cloud Sync</span>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-900">Hardware API Integrations</span>
-                    <span className="text-xs text-emerald-700 font-mono font-semibold">GPS, Camera, Bluetooth, QR</span>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-900">GST Billing & E-Way Bills</span>
-                    <span className="text-xs text-emerald-700 font-mono font-semibold">Real-time Tax Ledger</span>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-900">Cross-Platform Deployment</span>
-                    <span className="text-xs text-emerald-700 font-mono font-semibold">Flutter (iOS & Android)</span>
-                  </div>
-                </div>
-                <div className="mt-6 pt-5 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-                  <span>Stack: Flutter &bull; React Native &bull; PostgreSQL &bull; SQLite</span>
-                  <span className="text-emerald-700 font-semibold">Store Approval Guarantee</span>
-                </div>
+              <div className="rounded-3xl bg-slate-900 border border-slate-200 overflow-hidden shadow-xl relative group">
+                <img
+                  src="/images/slider-app-development.jpg"
+                  alt="Custom Software & App Development - Zippy Enterprises"
+                  className="w-full h-auto max-h-[480px] object-contain mx-auto"
+                  loading="lazy"
+                />
+                <button
+                  type="button"
+                  onClick={() => setSelectedImage('/images/slider-app-development.jpg')}
+                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 hover:bg-black/90 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg border border-white/20 transition-all cursor-pointer"
+                  title="View Full Clarity High-Res"
+                >
+                  <Maximize2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Full Clarity</span>
+                </button>
               </div>
             </div>
 
@@ -277,35 +260,22 @@ export const ServicesPage: React.FC = () => {
             </div>
 
             <div className="lg:col-span-6">
-              <div className="rounded-3xl bg-slate-50 border border-sky-200 p-8 shadow-lg">
-                <div className="text-xs font-bold uppercase tracking-wider text-sky-700 mb-4">
-                  Enterprise AI Guardrails & Architecture
-                </div>
-                <div className="space-y-3">
-                  <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-slate-900">Zero Data Training Agreement</span>
-                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">Strict Privacy</span>
-                    </div>
-                    <p className="text-xs text-slate-500 mt-1">Enterprise LLM API agreements explicitly isolate client corporate data from public training sets.</p>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-slate-900">Retrieval-Augmented Generation (RAG)</span>
-                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200 font-semibold">pgvector / Pinecone</span>
-                    </div>
-                    <p className="text-xs text-slate-500 mt-1">Chatbots and voice agents speak strictly from your verified company documents and product catalogs.</p>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-bold text-slate-900">Full-Duplex Speech Telephony</span>
-                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-semibold">Sub-500ms</span>
-                    </div>
-                    <p className="text-xs text-slate-500 mt-1">WebSockets streaming with voice interruption handling and human-like natural intonation.</p>
-                  </div>
-                </div>
+              <div className="rounded-3xl bg-slate-900 border border-slate-200 overflow-hidden shadow-xl relative group">
+                <img
+                  src="/images/slider-ai-automation.jpg"
+                  alt="AI Agent & Automation Services - Zippy Enterprises"
+                  className="w-full h-auto max-h-[480px] object-contain mx-auto"
+                  loading="lazy"
+                />
+                <button
+                  type="button"
+                  onClick={() => setSelectedImage('/images/slider-ai-automation.jpg')}
+                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 hover:bg-black/90 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg border border-white/20 transition-all cursor-pointer"
+                  title="View Full Clarity High-Res"
+                >
+                  <Maximize2 className="w-3.5 h-3.5 text-sky-400" />
+                  <span>Full Clarity</span>
+                </button>
               </div>
             </div>
 
@@ -322,6 +292,33 @@ export const ServicesPage: React.FC = () => {
 
       {/* CTA */}
       <CTASection />
+
+      {/* Full-Screen Clarity Lightbox Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div 
+            className="relative max-w-4xl max-h-[90vh] bg-slate-950 rounded-2xl overflow-hidden p-2 border border-white/20 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/80 hover:bg-black text-white flex items-center justify-center border border-white/20 cursor-pointer transition-colors"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Full Clarity View - Zippy Enterprises"
+              className="max-h-[85vh] w-auto mx-auto object-contain rounded-xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

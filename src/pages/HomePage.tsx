@@ -323,14 +323,31 @@ export const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Division 1: Web Development */}
-            <div className="group rounded-3xl bg-white border border-slate-200 hover:border-blue-400 p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
+            <div className="group rounded-3xl bg-white border border-slate-200 hover:border-blue-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 mb-6 group-hover:scale-105 transition-transform">
-                  <Globe className="w-7 h-7" />
+                {/* Service Poster Image */}
+                <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
+                  <img
+                    src="/images/slider-web-development.jpg"
+                    alt="Web Development & Business Portals - Zippy Enterprises"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-2.5 left-2.5">
+                    <span className="px-2.5 py-1 rounded-full bg-blue-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
+                      Division 01
+                    </span>
+                  </div>
+                  <div className="absolute bottom-2.5 right-2.5">
+                    <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-cyan-300 text-[10px] font-mono font-medium">
+                      Web & Portals
+                    </span>
+                  </div>
                 </div>
 
-                <div className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1">
-                  Division 01
+                <div className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1 flex items-center gap-1.5">
+                  <Globe className="w-3.5 h-3.5" />
+                  <span>Division 01</span>
                 </div>
 
                 <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
@@ -377,14 +394,31 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* Division 2: App Development */}
-            <div className="group rounded-3xl bg-white border border-slate-200 hover:border-emerald-400 p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
+            <div className="group rounded-3xl bg-white border border-slate-200 hover:border-emerald-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-6 group-hover:scale-105 transition-transform">
-                  <Smartphone className="w-7 h-7" />
+                {/* Service Poster Image */}
+                <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
+                  <img
+                    src="/images/slider-app-development.jpg"
+                    alt="Custom Software & App Development - Zippy Enterprises"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-2.5 left-2.5">
+                    <span className="px-2.5 py-1 rounded-full bg-emerald-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
+                      Division 02
+                    </span>
+                  </div>
+                  <div className="absolute bottom-2.5 right-2.5">
+                    <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-emerald-300 text-[10px] font-mono font-medium">
+                      App & Software
+                    </span>
+                  </div>
                 </div>
 
-                <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-1">
-                  Division 02
+                <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-1 flex items-center gap-1.5">
+                  <Smartphone className="w-3.5 h-3.5" />
+                  <span>Division 02</span>
                 </div>
 
                 <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
@@ -431,14 +465,31 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* Division 3: AI Agent & Automation */}
-            <div className="group rounded-3xl bg-white border border-slate-200 hover:border-sky-400 p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
+            <div className="group rounded-3xl bg-white border border-slate-200 hover:border-sky-400 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1">
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 mb-6 group-hover:scale-105 transition-transform">
-                  <Bot className="w-7 h-7" />
+                {/* Service Poster Image */}
+                <div className="relative rounded-2xl overflow-hidden mb-6 bg-slate-900 border border-slate-200 shadow-xs aspect-[4/3] group/img">
+                  <img
+                    src="/images/slider-ai-automation.jpg"
+                    alt="AI Agent & Automation Services - Zippy Enterprises"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-103"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-2.5 left-2.5">
+                    <span className="px-2.5 py-1 rounded-full bg-sky-600/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
+                      Division 03
+                    </span>
+                  </div>
+                  <div className="absolute bottom-2.5 right-2.5">
+                    <span className="px-2 py-0.5 rounded-md bg-black/70 backdrop-blur-xs text-sky-300 text-[10px] font-mono font-medium">
+                      AI & Automation
+                    </span>
+                  </div>
                 </div>
 
-                <div className="text-xs font-bold uppercase tracking-wider text-sky-700 mb-1">
-                  Division 03
+                <div className="text-xs font-bold uppercase tracking-wider text-sky-700 mb-1 flex items-center gap-1.5">
+                  <Bot className="w-3.5 h-3.5" />
+                  <span>Division 03</span>
                 </div>
 
                 <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
