@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -31,7 +31,11 @@ import {
   Mail,
   Phone,
   Sparkles,
-  Users
+  Users,
+  Play,
+  Volume2,
+  VolumeX,
+  Zap
 } from 'lucide-react';
 import { MetaTags } from '../components/common/MetaTags';
 import { SectionHeading } from '../components/common/SectionHeading';
@@ -47,6 +51,15 @@ import { generateWhatsAppUrl } from '../utils/whatsapp';
 
 export const HomePage: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isMuted, setIsMuted] = useState<boolean>(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
 
   // Industry Icon mapping helper
   const getIndustryIcon = (iconName: string) => {
@@ -133,20 +146,28 @@ export const HomePage: React.FC = () => {
           </p>
 
           {/* Call-to-Action Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-xl mx-auto">
             <Link
               to="/services"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-base transition-all duration-200 shadow-lg shadow-blue-500/20 hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-base transition-all duration-200 shadow-lg shadow-blue-500/20 hover:-translate-y-0.5"
             >
-              <span>Explore Our Services</span>
+              <span>Explore Services</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
+            <a
+              href="#ai-automation-demo"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-300 text-sky-800 font-bold text-base transition-all duration-200 shadow-xs hover:-translate-y-0.5"
+            >
+              <Play className="w-4 h-4 text-sky-600 fill-sky-600" />
+              <span>Watch AI Demo</span>
+            </a>
+
             <Link
               to="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-base transition-all duration-200 shadow-sm hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-base transition-all duration-200 shadow-sm hover:-translate-y-0.5"
             >
-              <span>Discuss Your Project</span>
+              <span>Discuss Project</span>
               <ChevronRight className="w-4 h-4 text-blue-600" />
             </Link>
           </div>
@@ -457,6 +478,198 @@ export const HomePage: React.FC = () => {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          LIVE SHOWCASE: AI AGENT & AUTOMATION VIDEO DEMO
+          ========================================================================= */}
+      <section id="ai-automation-demo" className="py-20 md:py-28 bg-gradient-to-b from-[#F8FAFC] via-white to-blue-50/40 border-y border-slate-200 relative overflow-hidden performance-section">
+        {/* Ambient background glow */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl h-[600px] pointer-events-none rounded-full opacity-40 gpu-layer" 
+          style={{ background: 'radial-gradient(ellipse 700px 450px at 50% 50%, rgba(56, 189, 248, 0.15), rgba(37, 99, 235, 0.08), transparent 70%)' }}
+        />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <SectionHeading
+            badge="Live Video Showcase • Division 03"
+            title="See Our Autonomous AI Automation"
+            highlightedText="In Live Action"
+            description="Watch how autonomous customer support agents, AI voice bots, and automated business workflows operate 24/7—capturing qualified leads and slashing operational friction."
+          />
+
+          <div className="mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Column: Interactive Smartphone Device Mockup */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-[320px] sm:max-w-[340px]">
+                {/* Outer Glow */}
+                <div className="absolute -inset-3 bg-gradient-to-tr from-cyan-500/20 via-blue-600/20 to-indigo-600/20 rounded-[52px] blur-xl opacity-70"></div>
+
+                {/* Smartphone Chassis */}
+                <div className="relative rounded-[46px] p-3 sm:p-3.5 bg-gradient-to-b from-slate-800 via-slate-900 to-black shadow-2xl border-4 border-slate-700/70">
+                  {/* Dynamic Island / Top Camera */}
+                  <div className="w-24 h-4 bg-slate-950 rounded-full mx-auto mb-2.5 flex items-center justify-center gap-1.5 shadow-inner">
+                    <span className="w-2 h-2 rounded-full bg-slate-800"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-900"></span>
+                  </div>
+
+                  {/* Screen with 9:16 aspect ratio */}
+                  <div className="relative rounded-[32px] overflow-hidden bg-black aspect-[9/16] border border-slate-800 shadow-inner group">
+                    <video
+                      ref={videoRef}
+                      src="/videos/ai_automation_add.mp4"
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted={isMuted}
+                      playsInline
+                      preload="metadata"
+                      controls
+                    />
+
+                    {/* Floating Audio Toggle Pill */}
+                    <div className="absolute top-3 right-3 z-20">
+                      <button
+                        type="button"
+                        onClick={toggleMute}
+                        className="px-3 py-1.5 rounded-full bg-black/75 hover:bg-black/90 backdrop-blur-md text-white text-[11px] font-semibold border border-white/20 flex items-center gap-1.5 shadow-lg transition-all cursor-pointer"
+                        title={isMuted ? "Unmute Sound" : "Mute Sound"}
+                      >
+                        {isMuted ? (
+                          <>
+                            <VolumeX className="w-3.5 h-3.5 text-rose-400" />
+                            <span>Unmute 🔊</span>
+                          </>
+                        ) : (
+                          <>
+                            <Volume2 className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+                            <span>Sound On</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+
+                    {/* Floating Live Badge inside screen */}
+                    <div className="absolute top-3 left-3 z-20 pointer-events-none">
+                      <span className="px-2.5 py-1 rounded-full bg-blue-600/85 backdrop-blur-md text-white text-[10px] font-bold border border-white/20 flex items-center gap-1 shadow-md">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span>AI SHOWCASE</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Home Indicator Bar */}
+                  <div className="w-28 h-1 bg-slate-700 rounded-full mx-auto mt-2.5"></div>
+                </div>
+
+                {/* Floating Highlights Outside Phone */}
+                <div className="hidden sm:flex absolute -left-5 bottom-12 px-3.5 py-2 rounded-xl bg-white/95 border border-slate-200 shadow-lg backdrop-blur-sm items-center gap-2 text-xs font-bold text-slate-800">
+                  <Bot className="w-4 h-4 text-blue-600" />
+                  <span>24/7 Autonomous Agent</span>
+                </div>
+
+                <div className="hidden sm:flex absolute -right-5 top-16 px-3.5 py-2 rounded-xl bg-white/95 border border-slate-200 shadow-lg backdrop-blur-sm items-center gap-2 text-xs font-bold text-slate-800">
+                  <Zap className="w-4 h-4 text-amber-500" />
+                  <span>10x Inbound Conversion</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Narrative & Key Automation Capabilities */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold badge-cyan">
+                <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+                <span>Zero Hallucinations • Enterprise Grade</span>
+              </div>
+
+              <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Transform Routine Operations Into Automated Revenue Engines
+              </h3>
+
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                Modern businesses lose up to 40% of potential leads due to delayed follow-ups and after-hours silence. Our autonomous AI agents engage prospective buyers instantly, conduct lifelike voice calls, and orchestrate back-office software workflows without human intervention.
+              </p>
+
+              {/* 4 Feature Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors">
+                  <div className="flex items-center gap-2.5 mb-1.5">
+                    <div className="p-2 rounded-lg bg-blue-50 text-blue-600">
+                      <Bot className="w-4 h-4" />
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-900">24/7 Web & WhatsApp AI</h4>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Responds to customer queries under 3 seconds with exact product and catalog knowledge.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors">
+                  <div className="flex items-center gap-2.5 mb-1.5">
+                    <div className="p-2 rounded-lg bg-sky-50 text-sky-600">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-900">Conversational Voice Bots</h4>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Ultra-low latency telephony agents for appointment scheduling and automated customer reminders.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors">
+                  <div className="flex items-center gap-2.5 mb-1.5">
+                    <div className="p-2 rounded-lg bg-emerald-50 text-emerald-600">
+                      <Zap className="w-4 h-4" />
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-900">Document & Workflow OCR</h4>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Automates invoice reading, GST data ingestion, and multi-app sync across CRM, ERP, and Sheets.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:border-blue-400 transition-colors">
+                  <div className="flex items-center gap-2.5 mb-1.5">
+                    <div className="p-2 rounded-lg bg-purple-50 text-purple-600">
+                      <ShieldCheck className="w-4 h-4" />
+                    </div>
+                    <h4 className="text-sm font-bold text-slate-900">Zero-Hallucination Safety</h4>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Strict enterprise boundaries and data privacy—your business data is never used to train public models.
+                  </p>
+                </div>
+              </div>
+
+              {/* Action Pathways */}
+              <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                <Link
+                  to="/services/ai-automation"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md shadow-blue-500/20 transition-all hover:-translate-y-0.5"
+                >
+                  <span>Explore AI Division Architecture</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <a
+                  href={generateWhatsAppUrl({
+                    service: "AI Agent & Automation",
+                    projectDescription: "Hello Zippy Softwares, I watched your AI Automation video demo on the website and want to explore AI automation for our business."
+                  })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md transition-all hover:-translate-y-0.5"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Consult on WhatsApp</span>
+                </a>
+              </div>
+
             </div>
 
           </div>
