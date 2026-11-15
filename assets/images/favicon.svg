@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="zippy-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D2FF" />
+      <stop offset="50%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A1128" />
+      <stop offset="100%" stop-color="#0E1B38" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <!-- Background Rounded Shield -->
+  <rect width="64" height="64" rx="16" fill="url(#bg-grad)" stroke="#2563EB" stroke-width="1.5" stroke-opacity="0.4"/>
+  <!-- Z Monogram -->
+  <path d="M16 19H48L28 36H48V45H16L36 28H16V19Z" fill="url(#zippy-grad)" filter="url(#glow)"/>
+  <circle cx="48" cy="19" r="3.5" fill="#00D2FF" />
+  <circle cx="16" cy="45" r="3" fill="#2563EB" />
+</svg>
