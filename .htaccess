@@ -1,66 +1,100 @@
-# ====================================================================
-# Zippy Softwares - Production Apache Configuration (.htaccess)
+# ==============================================================================
+# Zippy Softwares - Native PHP Enterprise Web Server & Routing Configuration
+# Built for Hostinger Apache / LiteSpeed Web Server with HTTPS, HSTS, and Clean PHP Routing
 # A Division of Zippy Enterprises Private Limited
-# ====================================================================
+# Office: Sneha Apartments, HMT Nagar, Nacharam, 500076, Hyderabad, Telangana
+# ==============================================================================
 
+# 1. DIRECTORY INDEX PRIORITY
 DirectoryIndex index.php index.html
 
+# 2. DISABLE DIRECTORY BROWSING
+Options -Indexes -MultiViews
+
+# 3. DEFAULT CHARSET & MIME TYPES
+AddDefaultCharset UTF-8
+
+<IfModule mod_mime.c>
+  AddType application/javascript .js .mjs
+  AddType text/css .css
+  AddType image/svg+xml .svg
+  AddType image/x-icon .ico
+  AddType application/json .json
+  AddType image/webp .webp
+  AddType video/mp4 .mp4
+  AddType font/woff2 .woff2
+</IfModule>
+
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
+  RewriteEngine On
+  RewriteBase /
 
-    # Enforce HTTPS
-    RewriteCond %{HTTPS} !=on
-    RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
-    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # 4. ENFORCE HTTPS / SSL (Redirects all HTTP traffic to HTTPS)
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    # Handle clean extensionless URLs (e.g., /services -> /services.php)
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME}\.php -f
-    RewriteRule ^([^\.]+)$ $1.php [NC,L]
+  # 5. BLOCK MALICIOUS USER AGENTS & EXPLOIT TOOLS
+  RewriteCond %{HTTP_USER_AGENT} (sqlmap|nikto|wpscan|havij|acunetix|masscan|zgrab|nmap|dirbuster) [NC]
+  RewriteRule .* - [F,L]
 
-    # Service Subpaths Rewriting (e.g., /services/web-development -> /web-development.php)
-    RewriteRule ^services/web-development/?$ web-development.php [NC,L]
-    RewriteRule ^services/app-development/?$ app-development.php [NC,L]
-    RewriteRule ^services/ai-automation/?$ ai-automation.php [NC,L]
+  # 6. BLOCK ATTEMPTS TO ACCESS HIDDEN DIRECTORIES (.git, .env, etc.)
+  RewriteRule "(^|/)\.(?!well-known)" - [F,L]
 
+  # 7. ROUTE SPECIFIC SERVICES SUBPATHS
+  RewriteRule ^services/web-development/?$ web-development.php [L,QSA]
+  RewriteRule ^services/app-development/?$ app-development.php [L,QSA]
+  RewriteRule ^services/ai-automation/?$ ai-automation.php [L,QSA]
+
+  # 8. DIRECT REAL FILE OR DIRECTORY ACCESS
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # 9. REWRITE EXTENSIONLESS URLS TO .PHP (e.g. /about -> about.php)
+  RewriteCond %{REQUEST_FILENAME}.php -f
+  RewriteRule ^([a-zA-Z0-9_-]+)/?$ $1.php [L,QSA]
+
+  # 10. CLEAN FALLBACK TO index.php
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ index.php [L,QSA]
 </IfModule>
 
-# Browser Caching
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresDefault "access plus 2 days"
-    ExpiresByType image/x-icon "access plus 1 year"
-    ExpiresByType image/jpeg "access plus 1 month"
-    ExpiresByType image/png "access plus 1 month"
-    ExpiresByType image/gif "access plus 1 month"
-    ExpiresByType image/svg+xml "access plus 1 month"
-    ExpiresByType video/mp4 "access plus 1 month"
-    ExpiresByType text/css "access plus 1 week"
-    ExpiresByType application/javascript "access plus 1 week"
-    ExpiresByType font/woff2 "access plus 1 year"
-</IfModule>
+# 11. BLOCK ACCESS TO SENSITIVE FILE EXTENSIONS
+<FilesMatch "(?i)\.(env|sql|log|bak|config|ts|tsx|map|sh|ps1|yml|yaml|md|lock|json)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
 
-# Compression
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript application/json image/svg+xml
-</IfModule>
-
-# Security Headers
+# 12. HTTP SECURITY HEADERS
 <IfModule mod_headers.c>
-    Header set X-Content-Type-Options "nosniff"
-    Header set X-Frame-Options "SAMEORIGIN"
-    Header set X-XSS-Protection "1; mode=block"
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# Prevent viewing of sensitive files
-<FilesMatch "^\.">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
+# 13. CACHING FOR STATIC ASSETS
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType video/mp4 "access plus 1 month"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
 
-<FilesMatch "(leads\.json|package\.json|package-lock\.json|tsconfig\.json)$">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
+# 14. GZIP COMPRESSION
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript application/json image/svg+xml
+</IfModule>
