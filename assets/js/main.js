@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initModals();
     initMobileMenu();
     initContactForm();
+    initWhatsAppLeadTracker();
 
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
@@ -472,4 +473,55 @@ function initContactForm() {
             }
         }
     });
+}
+
+// =========================================================================
+// 8. AUTOMATIC WHATSAPP LEAD CAPTURE TRACKER
+// =========================================================================
+function initWhatsAppLeadTracker() {
+    document.addEventListener('click', (e) => {
+        const waLink = e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]');
+        if (waLink) {
+            const href = waLink.getAttribute('href') || '';
+            const queryString = href.includes('?') ? href.split('?')[1] : '';
+            const urlParams = new URLSearchParams(queryString);
+            const text = urlParams.get('text') || '';
+
+            let service = 'General WhatsApp Inquiry';
+            if (text.includes('Web Development') || window.location.pathname.includes('web-development')) {
+                service = 'Web Development & Portals';
+            } else if (text.includes('App Development') || window.location.pathname.includes('app-development')) {
+                service = 'Custom Software & App Development';
+            } else if (text.includes('AI Automation') || text.includes('AI Agent') || window.location.pathname.includes('ai-automation')) {
+                service = 'AI Automation & Agents';
+            } else if (text.includes('portfolio') || text.includes('case study') || window.location.pathname.includes('portfolio')) {
+                service = 'Portfolio Case Study Architecture';
+            }
+
+            const leadData = {
+                name: 'WhatsApp Website Visitor',
+                phone: 'Initiated WhatsApp Chat (+91 63026 90251)',
+                service: service,
+                source: 'WhatsApp Click on ' + (window.location.pathname.replace(/^\//, '') || 'Homepage'),
+                message: text || 'Clicked instant WhatsApp inquiry button on website'
+            };
+
+            // Transmit lead silently to the backend admin database
+            try {
+                if (navigator.sendBeacon) {
+                    const blob = new Blob([JSON.stringify(leadData)], { type: 'application/json' });
+                    navigator.sendBeacon('/api/track_lead.php', blob);
+                } else {
+                    fetch('/api/track_lead.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(leadData),
+                        keepalive: true
+                    }).catch(() => {});
+                }
+            } catch (err) {
+                // Non-blocking
+            }
+        }
+    }, true);
 }

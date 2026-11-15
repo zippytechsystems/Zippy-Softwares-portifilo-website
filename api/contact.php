@@ -5,6 +5,7 @@
  */
 header('Content-Type: application/json; charset=utf-8');
 require_once __DIR__ . '/../includes/config.php';
+require_once __DIR__ . '/../includes/storage.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -53,30 +54,21 @@ $waText = "Hello Zippy Enterprises,\n"
 
 $whatsappUrl = 'https://wa.me/916302690251?text=' . rawurlencode($waText);
 
-// Save lead locally to leads.json for record-keeping
-$leadsFile = __DIR__ . '/leads.json';
-$leadRecord = [
-    'timestamp' => date('Y-m-d H:i:s'),
+// Save lead to persistent database & backup
+$res = saveLead([
     'name' => $name,
     'email' => $email,
     'phone' => $phone,
     'service' => $service,
     'budget' => $budget,
     'message' => $message,
-    'ip' => $_SERVER['REMOTE_ADDR'] ?? 'Unknown'
-];
-
-$existingLeads = [];
-if (file_exists($leadsFile)) {
-    $content = file_get_contents($leadsFile);
-    $existingLeads = json_decode($content, true) ?: [];
-}
-$existingLeads[] = $leadRecord;
-@file_put_contents($leadsFile, json_encode($existingLeads, JSON_PRETTY_PRINT));
+    'source' => 'Website Contact Form'
+]);
 
 // Return success response
 echo json_encode([
     'success' => true,
+    'reference_id' => $res['reference_id'] ?? null,
     'message' => 'Thank you ' . htmlspecialchars($name) . '! Your project inquiry has been received. Our solutions architect will review your scope and get in touch shortly.',
     'whatsapp_url' => $whatsappUrl
 ]);

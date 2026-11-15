@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "application_id": "INT-261115-84A37",
+        "full_name": "Ananya Sharma (Test Applicant)",
+        "mobile_number": "+91 9848012345",
+        "email": "ananya@cbit.edu",
+        "domain": "Web Development",
+        "college": "CBIT Hyderabad",
+        "year_of_study": "Final Year (2025)",
+        "duration": "3 Months",
+        "portfolio_link": "https:\/\/github.com\/ananya-dev",
+        "skills_notes": "Proficient in React, Tailwind, and Node.js.",
+        "status": "NEW",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-11-15 16:18:29"
+    }
+]

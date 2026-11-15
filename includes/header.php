@@ -77,10 +77,18 @@ $canonicalUrl = SITE_URL . '/' . ($currentPage === 'index' ? '' : $currentPage .
             <span class="font-medium">Near By IT Software Development &bull; Nacharam, Hyderabad 500076</span>
         </div>
 
-        <div class="flex items-center gap-4 text-xs">
-            <button type="button" onclick="openHiringModal()" class="flex items-center gap-1.5 text-amber-300 hover:text-white font-semibold transition-colors bg-blue-900/70 px-2.5 py-0.5 rounded-full border border-amber-400/40">
+        <div class="flex items-center gap-2 sm:gap-4 text-xs">
+            <button type="button" onclick="openInternshipModal()" class="flex items-center gap-1.5 text-cyan-200 hover:text-white font-bold transition-all bg-sky-500/20 hover:bg-sky-500/30 px-3 py-0.5 rounded-full border border-cyan-400/60 shadow-xs cursor-pointer">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                </span>
+                <span>🎓 We are Opening Internships!</span>
+            </button>
+            <span class="text-slate-500 hidden sm:inline">|</span>
+            <button type="button" onclick="openHiringModal()" class="hidden md:flex items-center gap-1.5 text-amber-300 hover:text-white font-semibold transition-colors bg-blue-900/70 px-2.5 py-0.5 rounded-full border border-amber-400/40">
                 <i data-lucide="sparkles" class="w-3 h-3 text-amber-300"></i>
-                <span>We Are Hiring: 4 Marketing Executives</span>
+                <span>Hiring: 4 Executives</span>
             </button>
             <span class="text-slate-400 hidden md:inline">|</span>
             <a href="tel:<?= CONTACT_PHONE_RAW ?>" class="hidden md:flex items-center gap-1.5 text-white hover:text-cyan-300 font-bold transition-colors">
@@ -159,6 +167,10 @@ $canonicalUrl = SITE_URL . '/' . ($currentPage === 'index' ? '' : $currentPage .
             <a href="/process.php" class="<?= is_active_page('process', $currentPage) ?> transition-colors py-1">Process</a>
             <a href="/portfolio.php" class="<?= is_active_page('portfolio', $currentPage) ?> transition-colors py-1">Portfolio</a>
             <a href="/contact.php" class="<?= is_active_page('contact', $currentPage) ?> transition-colors py-1">Contact</a>
+            <button type="button" onclick="openInternshipModal()" class="text-sky-600 hover:text-sky-700 font-bold transition-colors py-1 flex items-center gap-1 cursor-pointer">
+                <i data-lucide="graduation-cap" class="w-4 h-4 text-sky-600"></i>
+                <span>Internships</span>
+            </button>
         </div>
 
         <!-- Right Side CTA Actions -->
@@ -213,6 +225,10 @@ $canonicalUrl = SITE_URL . '/' . ($currentPage === 'index' ? '' : $currentPage .
                 <a href="/process.php" class="block py-2 hover:text-blue-600">Development Process</a>
                 <a href="/portfolio.php" class="block py-2 hover:text-blue-600">Client Portfolio</a>
                 <a href="/contact.php" class="block py-2 hover:text-blue-600">Contact & Office</a>
+                <button type="button" onclick="closeMobileDrawer(); openInternshipModal();" class="w-full text-left py-2 text-sky-600 font-bold hover:text-sky-700 flex items-center gap-2">
+                    <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                    <span>Apply for Internships</span>
+                </button>
             </div>
         </div>
 

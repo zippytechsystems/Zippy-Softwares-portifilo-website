@@ -151,6 +151,8 @@ require_once __DIR__ . '/data.php';
 // Include Interactive Modals & Floating Buttons
 require_once __DIR__ . '/image_modal.php';
 require_once __DIR__ . '/hiring_modal.php';
+require_once __DIR__ . '/internship_badge.php';
+require_once __DIR__ . '/internship_modal.php';
 require_once __DIR__ . '/project_modal.php';
 require_once __DIR__ . '/whatsapp_button.php';
 ?>
