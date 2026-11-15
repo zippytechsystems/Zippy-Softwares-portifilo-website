@@ -3,7 +3,6 @@
  * Zippy Softwares - Operations, Leads & Recruitment Admin Portal
  * A Division of Zippy Enterprises Private Limited
  * Office: Sneha Apartments, HMT Nagar, Nacharam, 500076, Hyderabad, Telangana
- * Passkeys: Zippy@2026, M.Linga@123, zippy123
  */
 
 declare(strict_types=1);
@@ -206,7 +205,10 @@ $todayInternships = count(array_filter($allInternships, fn($a) => str_starts_wit
         </form>
 
         <div class="mt-6 pt-5 border-t border-slate-700 text-center text-xs text-slate-400">
-            <span>Passkey Hint: <code>Zippy@2026</code> or <code>M.Linga@123</code></span>
+            <span class="flex items-center justify-center gap-1.5 text-slate-500 text-[11px]">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-sky-400"></i>
+                <span>Authorized Personnel Only • Secure 256-bit Encrypted Session</span>
+            </span>
         </div>
     </div>
 </div>

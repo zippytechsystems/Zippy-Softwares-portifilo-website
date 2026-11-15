@@ -58,7 +58,7 @@ This project is built using a native, high-performance **HTML + PHP** multi-page
 
 ## Admin Portal
 Access the Operations Portal at `/admin` or `/admin.php`:
-- **Authorized Passkeys:** `Zippy@2026`, `M.Linga@123`, `zippy123`
+- **Security:** Protected by confidential Administrator Passkey.
 - **Features:**
   1. **Customer Leads:** Automatic logging of every WhatsApp inquiry & contact form submission.
   2. **Internships & Hiring:** Real-time list of all student applicants with college, resume link, and WhatsApp action.
