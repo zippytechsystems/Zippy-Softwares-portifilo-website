@@ -725,6 +725,32 @@ require_once __DIR__ . '/includes/header.php';
     </div>
 </section>
 
+<!-- =========================================================================
+    8. DISCREET STAFF & ADMIN QUICK ACCESS STRIP
+    ========================================================================= -->
+<div class="bg-slate-950/80 py-2.5 px-4 border-t border-slate-800/80 text-center">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[11px] text-slate-500">
+        <span class="text-slate-400 font-semibold flex items-center gap-1">
+            <i data-lucide="shield" class="w-3 h-3 text-slate-500"></i>
+            <span>Operations Portal:</span>
+        </span>
+        <a href="/admin.php?tab=leads" class="text-slate-400 hover:text-cyan-400 font-medium transition-colors inline-flex items-center gap-1">
+            <i data-lucide="inbox" class="w-3 h-3 text-sky-400"></i>
+            <span>Customer Leads</span>
+        </a>
+        <span class="text-slate-700">&bull;</span>
+        <a href="/admin.php?tab=internships" class="text-slate-400 hover:text-emerald-400 font-medium transition-colors inline-flex items-center gap-1">
+            <i data-lucide="graduation-cap" class="w-3 h-3 text-emerald-400"></i>
+            <span>Internships & Hiring</span>
+        </a>
+        <span class="text-slate-700">&bull;</span>
+        <a href="/admin.php" class="text-slate-400 hover:text-white font-bold transition-colors inline-flex items-center gap-1">
+            <i data-lucide="lock" class="w-3 h-3 text-slate-500"></i>
+            <span>Admin Panel</span>
+        </a>
+    </div>
+</div>
+
 <?php
 require_once __DIR__ . '/includes/footer.php';
 ?>

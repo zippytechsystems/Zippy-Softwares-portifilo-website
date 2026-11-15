@@ -93,10 +93,22 @@ require_once __DIR__ . '/data.php';
                     <li><a href="/portfolio.php" class="hover:text-white transition-colors">Client Portfolio</a></li>
                     <li><a href="/contact.php" class="hover:text-white transition-colors">Contact & Office</a></li>
                     <li>
-                        <button type="button" onclick="openHiringModal()" class="text-amber-400 hover:text-white font-bold flex items-center gap-1 mt-2">
+                        <button type="button" onclick="openInternshipModal()" class="text-sky-400 hover:text-white font-bold flex items-center gap-1 mt-1">
+                            <i data-lucide="graduation-cap" class="w-3 h-3 text-sky-400"></i>
+                            <span>Internship Openings</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="openHiringModal()" class="text-amber-400 hover:text-white font-bold flex items-center gap-1 mt-1">
                             <i data-lucide="sparkles" class="w-3 h-3 text-amber-300"></i>
                             <span>Careers (4 Openings)</span>
                         </button>
+                    </li>
+                    <li>
+                        <a href="/admin.php" class="text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-1 mt-1">
+                            <i data-lucide="lock" class="w-3 h-3 text-slate-500"></i>
+                            <span>Admin Panel</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -135,12 +147,17 @@ require_once __DIR__ . '/data.php';
             <div>
                 &copy; <?= date('Y') ?> <strong><?= LEGAL_NAME ?></strong> (<?= BRAND_NAME ?>). All rights reserved.
             </div>
-            <div class="flex items-center gap-4 text-xs">
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4 text-xs">
                 <a href="/privacy-policy.php" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
                 <span>&bull;</span>
                 <a href="/terms-conditions.php" class="hover:text-slate-300 transition-colors">Terms of Service</a>
                 <span>&bull;</span>
                 <a href="/sitemap.xml" target="_blank" class="hover:text-slate-300 transition-colors">Sitemap XML</a>
+                <span>&bull;</span>
+                <a href="/admin.php" class="text-slate-500 hover:text-cyan-400 transition-colors inline-flex items-center gap-1">
+                    <i data-lucide="lock" class="w-3 h-3 text-slate-500"></i>
+                    <span>Admin Panel</span>
+                </a>
             </div>
         </div>
 
